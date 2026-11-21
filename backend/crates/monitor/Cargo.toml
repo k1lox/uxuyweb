@@ -1,0 +1,26 @@
+[package]
+name = "botai-monitor"
+version.workspace = true
+edition.workspace = true
+[features]
+sqlite = ["dep:rusqlite"]
+[dependencies]
+botai-core.workspace = true
+botai-database.workspace = true
+tokio.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+regex = "1"
+sha2 = "0.10"
+subtle = "2"
+base64 = "0.22"
+rand = "0.8"
+p256 = {version="0.13",features=["ecdsa"]}
+web-push = {version="0.11",default-features=false}
+rusqlite = {version="0.38",features=["bundled"],optional=true}
+
+[dev-dependencies]
+rusqlite = {version="0.38",features=["bundled"]}
+axum.workspace = true
+tempfile = "3"

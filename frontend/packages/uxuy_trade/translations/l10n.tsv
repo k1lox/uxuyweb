@@ -1,0 +1,307 @@
+key	en	zh_Hans
+check_group_approval	Check allowance	检查授权
+confirm_linked_start	Confirm linked trading	确认启动关联交易
+confirm_buy	Confirm buy	确认买入
+confirm_sell	Confirm sell	确认卖出
+rapid_group_name	Rapid group	快速交易组
+rapid_group_help	Rotate through wallets to buy, sell, or alternate. Set the interval and total number of trades.	按钱包轮流买入、卖出或交替买卖，可填交易间隔和总笔数。
+rapid_group_example	For 2 wallets and 4 alternating trades, wallet A buys and sells, then wallet B buys and sells.	两个钱包交替买卖，共四笔：A 买、A 卖、B 买、B 卖。
+network	Network	网络
+nav_batch	Batch trade	批量买卖
+nav_tools	Tools	工具
+current_token	Token	当前代币
+not_selected	Not selected	尚未选择
+select_token	Select token	选择代币
+change_token	Change	更换代币
+token	Token	代币
+token_hint	Token contract address	代币合约地址
+token_warning	Check the contract address carefully; tokens can be imitated.	请核对合约地址，注意分辨代币真伪。
+confirm	Confirm	确认
+copied	Copied	已复制
+log	Execution log	执行日志
+log_short	Log	日志
+log_empty	No records yet	暂无记录
+follow_latest	Follow	跟随最新
+clear	Clear	清空
+new_group	New group	新建组
+groups	Address groups	地址组
+no_groups	Add an address group to start.	添加地址组后开始配置。
+wallets_unit	wallets	个钱包
+addresses_unit	addresses	个地址
+selected	Selected	已选
+st_need_keys	Needs keys	待导入
+st_ready	Ready	待操作
+st_running	Running	执行中
+st_paused	Paused	已暂停
+st_done	Finished	已完成
+st_stopped	Stopped	已停止
+remove_group	Remove	删除
+remove_group_hint	Keys of this group are removed from the module. Make sure they are backed up.	本组私钥将从模块中移除，请确认已自行备份。
+remove	Remove	删除
+cancel	Cancel	取消
+wallets	Wallets	钱包
+input_keys	Input private keys	输入私钥
+refresh	Refresh	刷新余额
+reading	Reading…	读取中…
+total	total	合计
+wallet_details	Wallet details	钱包明细
+expand	Expand	展开
+collapse	Collapse	收起
+select_all	Select all	全选
+select_none	Clear selection	全反选
+trade_settings	Trade settings	交易设置
+direction	Direction	方向
+buy	Buy	买入
+sell	Sell	卖出
+execution	Execution	执行
+bundle	Bundle	捆绑
+interval	Interval	间隔
+per_wallet_buy	Each wallet buys	每个钱包买入
+per_wallet_sell	Each wallet sells	每个钱包卖出
+ratio	Ratio	比例
+amount	Amount	金额
+min	Min	最小
+max	Max	最大
+ratio_hint	Based on the balance when the group starts	按启动时余额计算
+order	Order	钱包顺序
+sequential	In order	顺序
+random	Random	随机
+seconds	sec	秒
+loop	Loop	循环
+start	Start	开始执行
+
+approval_check_hint	Checking a sell submits any missing token approvals and uses network gas. You confirm the sale separately.	检查卖出时会先补授权并支付网络费，卖出金额另行确认。
+pause	Pause	暂停
+resume	Resume	继续
+stop	Stop	停止
+stop_hint	Stop sends nothing new; submitted transactions keep confirming.	停止后不再发送新交易，已提交的交易继续确认
+need_token	Select a token first	请先选择代币
+need_keys	Input private keys first	请先输入私钥
+need_selection	Select wallets first	请先选择钱包
+keys_hint	One private key per line	一行一个私钥
+lines	Lines	行数
+memory_only	kept in memory for this session only	仅保存在本次会话内存中
+key_draft_backup	Complete keys are held in this session and backed up in plain text when a local folder is connected. This includes keys from canceled edits.	完整私钥会暂存在本次会话，连接本地文件夹后自动明文备份。取消编辑也会保留备份。
+save	Save	保存
+generate	Generate keys	生成私钥
+generate_action	Generate	生成
+stop_generation	Stop generating	停止生成
+backing_up_wallets	Saving backup…	正在备份
+delete_group_action	Delete group	删除组
+delete_wallet_group	Delete wallet group	删除钱包组
+delete_wallet_group_hint	This group will be removed from the generated list. Its backed-up private keys will be kept.	将从生成列表移除这组钱包，已备份的私钥会保留。
+confirm_remove	Confirm deletion	确认删除
+count	Count	数量
+generated	Generated	已生成
+not_backed_up	not backed up	个未备份
+backed_up	Backed up	已备份
+show_private_key	Show private key	查看私钥
+hide_private_key	Hide private key	隐藏私钥
+copy_private_key	Copy private key	复制私钥
+copy_address	Copy address	复制地址
+copy_selected_addresses	Copy selected addresses	复制所选地址
+copy_selected_keys	Copy selected keys	复制所选私钥
+copy_keys	Copy all keys	复制全部私钥
+exported	Copied. Keep the keys safe.	已复制，请妥善保存私钥
+backup_rule	New wallets can receive funds only after their keys are copied and saved.	新钱包须先复制保存私钥，才能接收资金。
+folder_backup_rule	Connect a local folder and let the key backup finish before using new wallets to receive funds.	新钱包收款前，请先连接本地文件夹，并等待私钥写入完成。
+folder_transit_backup_rule	Connect a local folder and let the relay key backup finish before starting.	中转地址会接收资金。请先连接本地文件夹，并等待中转私钥写入完成。
+distribute	Distribute	分发
+collect	Collect	归集
+source_key	Source private key	来源私钥
+not_filled	Not filled	未填写
+edit	Edit	编辑
+receivers	Receiving addresses	接收地址
+load_group	Load from group	载入组
+one_address_per_line	One address per line	一行一个地址
+each_amount	BNB per address	每个地址 BNB
+start_distribute	Start distribution	开始分发
+need_source	Fill in the source private key	请填写来源私钥
+collect_keys	Private keys to collect from	归集私钥
+keys_unit	keys	个私钥
+target	Collect to address	归集地址
+asset	Asset	资产
+start_collect	Start collection	开始归集
+st_pending	Query needed	待查询
+st_partial	Remaining	待继续
+normal_group	Normal group	普通组
+normal_group_hint	One set of wallets buys or sells together	一组钱包统一买入或卖出
+linked_group	Linked group	关联组
+linked_group_hint	Sellers sell first; buyers buy back with the BNB received	先卖后买：卖方卖出，买方用实际到账 BNB 买回
+sell_then_buy	Sell, then buy	先卖后买
+sellers	Sellers	卖方
+buyers	Buyers	买方
+relay_funding	Relay top-up	中转补款
+per_round_sell	Total sell per round	每轮总卖出
+quantity	Amount	数量
+linked_ratio_hint	Based on the sellers' total holdings at start	按卖方启动时总持仓计算
+auto_loop	Auto loop	自动循环
+relay_hint	When buyers lack BNB, their relay wallets top them up from the sellers.	买方余额不足时，经中转补款。
+transits	Relay wallets	中转地址
+copy_transit_keys	Copy relay keys	复制中转私钥
+transit_backup_rule	Relays receive funds: copy and keep their keys before starting.	中转地址会接收资金，开始前请先复制保存中转私钥。
+start_linked	Start sell-then-buy	开始先卖后买
+continue_round	Continue round	继续本轮
+end_round	End round	结束本轮
+end_round_hint	Confirmed trades stay; the remaining buy-back will not run.	已成交交易不会撤销，剩余买回不再执行。
+query_tx	Query original transactions	查询原交易
+query_hint	Some transactions have no final status yet. Nothing new is sent and nothing is resent until they are queried.	有交易尚未确认：查询前不会发送新交易，也不会重复发送。
+st_reconciliation_error	Reconciliation failed	对账失败
+sell_reconciliation_error	Sell order submitted. Three reconciliation retries failed. Automatic checks of the original transaction will continue.	卖单已提交，连续 3 次重试仍未完成对账。系统会继续自动核对原交易。
+buy_reconciliation_error	Buy order submitted. Three reconciliation retries failed. Automatic checks of the original transaction will continue.	买单已提交，连续 3 次重试仍未完成对账。系统会继续自动核对原交易。
+run_remaining	Run remaining	执行剩余
+end_group	End group	结束本组
+remaining_hint	Only the remaining wallets of this round continue; later rounds use the original settings.	仅继续本轮剩余钱包；下一轮仍按原设置。
+round_fmt	Round {n}	第 {n} 轮
+phase_sell	selling	卖出
+phase_buy	buying back	买回
+this_round_sell	This round sells	本轮卖出
+to_buy_back	To buy back	待买回
+received_total	Received	累计到账
+export_keys	Export keys	导出私钥
+export_keys_hint	Private keys will be copied to the clipboard. Keep them safe.	私钥将复制到剪贴板，请妥善保存。
+need_linked_keys	Enter seller and buyer keys first	请先输入卖方和买方私钥
+group_type	New group	新建组
+group_help	Group types explained	组类型说明
+group_help_type	Type	类型
+group_help_usage	How it works	怎么用
+group_help_example	Selling 1,000 tokens	比如卖出 1,000 枚
+group_help_normal_usage	Select wallets and choose buy or sell. Send their trades in a bundle or one at a time at set intervals.	导入一组钱包，勾选后统一买入或卖出，可捆绑发送或按间隔逐笔发送。
+group_help_normal_example	Each selected wallet aims to sell 1,000 tokens and keeps the BNB it receives.	每个勾选的钱包各计划卖出 1,000 枚，所得 BNB 留在各自钱包。
+group_help_linked_usage	Import sellers and buyers separately. Each round, sellers sell first. Buyers buy back the same token with the BNB received. Relay wallets top up buyers if needed.	分别导入卖方和买方。每轮先卖，再按实际到账的 BNB 买回同一种币。买方余额不足时，经中转钱包补款。
+group_help_linked_example	All sellers together sell 1,000 tokens. If they receive 0.2 BNB, buyers use that budget to buy back tokens into their own wallets.	所有卖方合计卖出 1,000 枚。若实收 0.2 BNB，买方就以 0.2 BNB 为预算买回，代币进入买方钱包。
+expected_tokens	Expected tokens	预计获得
+round_spend	Planned spend this round	本轮计划支付
+first_trade	First trade	首笔交易
+first_trade_receive	First trade proceeds	首笔预计到账
+first_trade_impact	Highest wallet impact	钱包中最大价格影响
+expected_receive	Expected to receive	预计到账
+expected_use	Expected to use	预计使用
+this_time	This time	本次卖出
+skipped	skipped	跳过
+not_quoted	Not available	未取得
+price_impact	Price impact	价格影响
+confirm_hint	Amounts were drawn once. Check the wallet count, asset and direction before confirming.	金额已抽取并锁定，请核对钱包数、代币和买卖方向。
+confirm_loop_hint	The first round runs as shown; later rounds draw again with the same settings.	首轮按以上金额执行，之后每轮按同样设置重新抽取。
+confirm_execute	Confirm	确认执行
+first_batch_expected	First batch expected	首批预计到账
+copy_addresses	Copy all addresses	复制全部地址
+one_to_many	One to many	一对多
+many_to_many	Many to many	多对多
+paired_hint	Paired in order; counts must match.	按顺序一一对应，数量须相同。
+distributor_keys	Distributor keys	分发方私钥
+token_address	Token address	代币地址
+per_address	Per address	每个地址
+per_wallet_distribute	Per wallet	每个钱包分发
+relay_distribution	Relay distribution	中转分发
+apply	Use	使用
+apply_hint_single	Same min and max = equal amounts. Amounts are drawn once on Use and not redrawn at submission.	两值相同即等量分发；使用后生成明细，提交时不再随机。
+apply_hint_paired	100% sends the whole available balance; gas is kept back. Amounts are fixed once drawn.	100% 转出全部可用余额，网络费另留；使用后生成明细，金额固定。
+distribution_details	Distribution details	分发明细
+relays	Relays	中转
+copy_relay_addresses	Copy relay addresses	复制中转地址
+relay_note	Numbers match the recipients; the distributor pays both legs of gas.	编号对应接收地址；由分发方支付两段网络费。
+relay_history	Relay backup (incl. history)	中转备份（含历史）
+query_transfers	Query original transfers	查询原转账
+retry_unfinished	Retry unfinished	重试未完成
+finish	End	结束
+ts_confirmed	Confirmed	已确认
+ts_not_received	Not received	未接收
+ts_failed	Failed	失败
+ts_unknown	To verify	待核实
+ts_waiting	Waiting	待发送
+ts_submitted	Submitted	已提交
+ts_skipped	Skipped	已跳过
+network_fee	Network fee	网络费
+confirm_transfer_hint	Amounts are fixed. Sent transfers cannot be withdrawn; unconfirmed ones are queried, never resent.	金额已固定；已发送的转账不可撤回，未确认的只查询，不重复发送。
+balance	Balance	余额
+sender	Sender	分发方
+legs	transactions	笔交易
+need_apply	Tap Use to draw the amounts first	请先点“使用”生成分发明细
+collector_keys	Collector keys	归集方私钥
+nav_launch	Launchpad	发射台
+basic_info	Basics	基本信息
+token_image	Token image	代币图片
+pick_image	Choose image	选择图片
+no_picker	Image selection is not available in this host	当前宿主未提供图片选择
+token_name	Name	名称
+token_symbol	Symbol	简写
+description	Description	描述
+socials	Links	链接（可选）
+category	Category	分类
+pool_token	Pool token	底池代币
+settlement	Pay with	付款方式
+pay_bnb	BNB	BNB
+pay_quote	Pool token	底池币
+token_type	Token type	代币类型
+normal_token	Ordinary	普通币
+tax_token	Tax Token	税币
+non_tax_token	Non-tax	无税币
+buy_tax	Buy tax %	买入税 %
+sell_tax	Sell tax %	卖出税 %
+tax_split	Tax split %	税收分配 %
+burn	Burn	销毁
+dividend	Dividend	分红
+liquidity	Liquidity	流动性
+recipient	Recipient	指定收款
+marketing	Creator	创作者
+recipient_address	Recipient address	收款地址
+min_holding	Min holding	分红最低持仓
+launch_mode	First buy scope	首买范围
+internal_mode	Internal buys only	仅内盘首买
+external_mode	Internal and external buys	内外盘首买
+dev_wallet	Dev wallet	Dev 钱包
+dev_buy	Dev first buy	Dev 首买
+internal_wallets	Internal buyers	内盘购买钱包
+external_wallets	External buyers	外盘购买钱包
+per_wallet_amount	Per wallet	每个地址
+tip	Builder tip	贿赂费
+prepare_launch	Prepare launch	准备发币
+launched	Launched	已发币
+liquidate	Liquidate all	一键清仓
+liquidate_asset	Liquidation proceeds	清仓到账币种
+liquidate_wallet_details	Wallets and sale amounts	查看清仓钱包与数量
+liquidate_hint	Sell all holdings in the launch and subsequent group-trade wallets shown here. Each sale uses the minimum {asset} amount in that wallet’s sale quote.	含本轮发币和后续批量买卖中仍有持仓的钱包。每个钱包的最低到账 {asset} 数量由其卖出报价确定。
+next_round	New round	新建下一轮
+trade_this	Trade in batch	去批量买卖
+version	Version	版本
+creator_recipient	Creator income address	收益地址
+creator_tax	Extra creator tax %	额外创作者税 %
+foundation	Income to foundation	收益给基金会
+alpha	Open Alpha	开通 Alpha
+exemptions	Extra tax-free addresses	额外开盘免税地址
+exempt_internal	Internal buyers tax-free at open	内盘地址加入开盘免税
+quote_address	Pool token address (empty = BNB)	底池币地址（留空为 BNB）
+upload_image	Upload image	上传图片
+image_ready	Image ready	图片已就绪
+load_config	Load config	读取配置
+loading	Loading…	读取中…
+tx_list	Transactions	交易
+custom_pool	Custom pool token address (optional)	自定义底池地址（可选）
+use_custom_pool	Use this pool token	使用该底池
+no_groups_title	No address groups yet	还没有地址组
+launch_unavailable	Unavailable	暂不可用
+four_launch_unavailable	Four.meme launches are temporarily unavailable	Four.meme 发币暂不可用
+four_launch_unavailable_hint	Four.meme's official service cannot be reached from our server right now, so launching on Four waits until it answers again. Buying and selling existing Four.meme tokens is not affected and works as usual in Batch trade.	Four.meme 官方接口暂时无法从我们的服务器访问，恢复后即可发币。已发行的 Four 代币买卖不受影响，可在批量买卖中正常操作。
+recheck	Check again	重新检测
+impact_settings	Price impact settings	价格影响设置
+impact_warning	Confirm price impact	确认价格影响风险
+impact_est_bundle	Estimated impact of this bundle	整组预计价格影响
+impact_est_interval	Highest estimated wallet impact	最大单笔预计价格影响
+impact_exceeds	Exceeds your alert threshold of	已超过提醒阈值
+impact_v4	V4 price impact cannot be assessed. Check the pool liquidity.	根据V4交易的特点，暂无法评估价格冲击，请主动核查流动性
+impact_unknown	The current route has no reliable impact estimate.	当前路径暂无可靠的价格影响数据。
+impact_check_pool	Review available liquidity before continuing.	请核对流动性后决定是否继续。
+impact_accept	Accept risk and continue	确认风险并继续
+impact_bundle_setting	Bundle or liquidation · group alert	捆绑及清仓 · 整组提醒
+impact_interval_setting	Interval start · highest wallet impact alert	间隔启动 · 各钱包最大值提醒
+impact_live_setting	Interval execution · pause trade	间隔执行 · 单笔暂停
+linked_impact_hint	This estimate covers the displayed leg. Buy-back depends on actual proceeds. Each later bundle is checked before submission and pauses if it exceeds the alert.	此处预估当前这笔捆绑。买回金额按卖出实收计算，后续每批发送前核对整组影响，超限即暂停。
+impact_buy_back	Pending buy-back	本轮待买回
+ledger_notice	Balances and allowances follow confirmed transactions. Refresh after using these wallets elsewhere.	余额与授权按已确认交易更新。钱包在其他地方操作后，请刷新。
+ledger_refreshed	Wallet balances and allowances refreshed	钱包余额与授权已刷新
+quote_wait	Still checking. You can stop the next steps. Submitted approvals will continue to confirm.	仍在检查，可停止后续操作。已提交的授权会继续确认。
+impact_stale	The preview has expired. Prepare again using the current settings.	准备结果已失效，请按当前设置重新准备。
+wallet_overlap	Wallets in another operation	钱包正在其他操作中使用
+wallet_overlap_detail	Finish the listed operation or check its pending transactions before using these wallets.	请先完成列出的操作，或查清原交易结果，再使用以下钱包。
+close_dialog	Close	关闭

@@ -1,0 +1,34 @@
+# BSC UXUY quote service, launchpad integrations and private transaction submission.
+[workspace]
+members = ["app", "crates/core", "crates/rpc", "crates/transactions", "crates/integrations", "crates/platforms", "crates/database", "crates/monitor"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+version = "0.2.0"
+license = "UNLICENSED"
+
+[workspace.dependencies]
+axum = { version = "0.8.9", features = ["multipart"] }
+tokio = { version = "1.52", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12.28", default-features = false, features = ["json", "rustls-tls", "multipart", "stream"] }
+futures = "0.3"
+moka = { version = "0.12", features = ["future"] }
+alloy-primitives = { version = "1.7", features = ["serde"] }
+alloy-sol-types = { version = "1.7", features = ["more-tuple-impls"] }
+alloy-consensus = { version = "2.4", features = ["k256"] }
+alloy-eips = "2.4"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tower-http = { version = "0.6", features = ["fs", "cors", "limit"] }
+botai-core = { path = "crates/core" }
+botai-rpc = { path = "crates/rpc" }
+botai-transactions = { path = "crates/transactions" }
+botai-integrations = { path = "crates/integrations" }
+botai-platforms = { path = "crates/platforms" }
+botai-monitor = { path = "crates/monitor" }
+botai-database = { path = "crates/database" }
+mysql = { version = "28", default-features = false, features = ["minimal-rust", "rustls-tls"] }

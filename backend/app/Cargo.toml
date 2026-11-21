@@ -1,0 +1,39 @@
+[package]
+name = "uxuy-backend"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+botai-monitor = { workspace = true, features = ["sqlite"] }
+axum.workspace = true
+tokio.workspace = true
+serde.workspace = true
+serde_json = { workspace = true, features = ["arbitrary_precision"] }
+reqwest.workspace = true
+futures.workspace = true
+alloy-primitives.workspace = true
+alloy-sol-types.workspace = true
+alloy-consensus.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tower-http.workspace = true
+botai-core.workspace = true
+botai-rpc.workspace = true
+botai-integrations.workspace = true
+botai-platforms.workspace = true
+botai-database.workspace = true
+# SQLite store for local runs without MySQL (feature name kept from the original crate).
+botai-transactions = { workspace = true, features = ["test-support"] }
+ring = "0.17"
+base64 = "0.22"
+md-5 = "0.10"
+pkcs1 = { version = "0.7", features = ["pkcs8"] }
+spki = { version = "0.7", features = ["alloc", "base64", "fingerprint"] }
+toml = "0.8"
+
+[dev-dependencies]
+alloy-eips.workspace = true
+rsa = "0.9"
+k256 = { version = "0.13", features = ["ecdsa"] }

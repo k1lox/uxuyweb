@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS botai_transactions (
+ chain BIGINT UNSIGNED NOT NULL, hash VARCHAR(80) COLLATE ascii_bin NOT NULL,
+ sender VARCHAR(80) COLLATE ascii_bin NOT NULL, nonce VARCHAR(24) COLLATE ascii_bin NOT NULL,
+ status VARCHAR(24) NOT NULL, max_block BIGINT UNSIGNED NULL, payload LONGTEXT NOT NULL,
+ PRIMARY KEY(chain,hash), INDEX pending_status(status), INDEX sender_lookup(chain,sender)
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS botai_nonce_claims (
+ chain BIGINT UNSIGNED NOT NULL, sender VARCHAR(80) COLLATE ascii_bin NOT NULL,
+ nonce VARCHAR(24) COLLATE ascii_bin NOT NULL, hash VARCHAR(80) COLLATE ascii_bin NOT NULL,
+ PRIMARY KEY(chain,sender,nonce)
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS botai_settings (
+ name VARCHAR(128) COLLATE ascii_bin PRIMARY KEY, value LONGTEXT NOT NULL
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS botai_monitor_devices (
+ token_hash CHAR(64) COLLATE ascii_bin PRIMARY KEY, endpoint_hash CHAR(64) COLLATE ascii_bin NOT NULL UNIQUE,
+ data LONGTEXT NOT NULL
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS botai_users (
+ id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+ credential_hash CHAR(64) COLLATE ascii_bin NOT NULL UNIQUE,
+ is_advanced BOOLEAN NOT NULL DEFAULT FALSE, member_until BIGINT UNSIGNED NOT NULL DEFAULT 0,
+ bound_ip VARCHAR(45) NOT NULL DEFAULT '', last_active BIGINT UNSIGNED NOT NULL DEFAULT 0,
+ session_version BIGINT UNSIGNED NOT NULL DEFAULT 1,
+ last_login_ip VARCHAR(45) NOT NULL DEFAULT '', last_login_at BIGINT UNSIGNED NOT NULL DEFAULT 0,
+ created_at BIGINT UNSIGNED NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=100001;
+CREATE TABLE IF NOT EXISTS botai_sessions (
+ token_hash CHAR(64) COLLATE ascii_bin PRIMARY KEY, user_id BIGINT UNSIGNED NOT NULL,
+ ip VARCHAR(45) NOT NULL, version BIGINT UNSIGNED NOT NULL, advanced_at_login BOOLEAN NOT NULL,
+ created_at BIGINT UNSIGNED NOT NULL, INDEX user_sessions(user_id),
+ FOREIGN KEY(user_id) REFERENCES botai_users(id)
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS botai_login_history (
+ id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, user_id BIGINT UNSIGNED NOT NULL,
+ ip VARCHAR(45) NOT NULL, logged_at BIGINT UNSIGNED NOT NULL, INDEX user_logins(user_id,id)
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS botai_orders (
+ id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT, user_id BIGINT UNSIGNED NOT NULL,
+ tier INT NOT NULL, amount_wei VARCHAR(40) COLLATE ascii_bin NOT NULL UNIQUE,
+ duration_seconds BIGINT UNSIGNED NOT NULL, created_at BIGINT UNSIGNED NOT NULL,
+ expires_at BIGINT UNSIGNED NOT NULL, start_block BIGINT UNSIGNED NOT NULL,
+ status VARCHAR(16) NOT NULL DEFAULT 'pending', tx_hash VARCHAR(66) COLLATE ascii_bin NULL UNIQUE,
+ credited_at BIGINT UNSIGNED NULL, INDEX user_orders(user_id,id), INDEX order_scan(status,expires_at),
+ FOREIGN KEY(user_id) REFERENCES botai_users(id)
+) ENGINE=InnoDB

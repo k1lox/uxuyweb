@@ -1,0 +1,17 @@
+{
+  "name": "uxuy-web-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "sh scripts/build.sh",
+    "verify": "python3 scripts/verify-parity.py",
+    "test:web": "node --test tests/browser.test.mjs",
+    "test:liquid": "node --test tests/log-liquid.browser.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.58.2",
+    "vite": "^8.2.0"
+  }
+}

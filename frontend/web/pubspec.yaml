@@ -1,0 +1,30 @@
+name: uxuy_web
+description: Independent UXUY desktop web trading workspace.
+publish_to: none
+version: 0.1.0+1
+environment:
+  sdk: ^3.13.5
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  http: ^1.2.1
+  web: ^1.1.1
+  uxuy_trade:
+    path: ../packages/uxuy_trade
+dependency_overrides:
+  uxuy_business_sdk:
+    path: ../packages/uxuy_business_sdk
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/OFL.txt
+  fonts:
+    - family: UXUYSans
+      fonts:
+        - asset: assets/fonts/NotoSansSC.ttf

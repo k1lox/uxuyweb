@@ -1,0 +1,410 @@
+[
+ {
+  "token": "0x0c8c22BEA0172d06128b1C4f53Fb885bd8448888",
+  "symbol": "SUICA",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|external|bnb|v2"
+ },
+ {
+  "token": "0xA45F5EB48CeCd034751651aeeda6271Bd5df8888",
+  "symbol": "Froggie ",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|external|bnb|v2"
+ },
+ {
+  "token": "0x5619de0f8479b2EcfD66869d48C243d13F787777",
+  "symbol": "扶摇人生",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|external|bnb|v6"
+ },
+ {
+  "token": "0x4f66b74A32c4f48ABCd6D5053B39105fD22c7777",
+  "symbol": "jinhu",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|external|bnb|v6"
+ },
+ {
+  "token": "0x9B2E9517f2a56A3BB733FCd9afd832e533997777",
+  "symbol": "圆梦助学",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|external|bnb|v6"
+ },
+ {
+  "token": "0x5162d3b5AcF2eF96602FBfFEBFb07a5981da7777",
+  "symbol": "雷达病毒",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x205812cdbed920aff76c6580abd681a46d11efc7",
+  "category": "flap|external|pool|v6"
+ },
+ {
+  "token": "0x458F865F96dB8E478987A4610AA7A0EB6bD17777",
+  "symbol": "Joe",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x205812cdbed920aff76c6580abd681a46d11efc7",
+  "category": "flap|external|pool|v6"
+ },
+ {
+  "token": "0x13920fe6467E9e3c852B8D365A036c995F0F7777",
+  "symbol": "GM",
+  "platform": "flap",
+  "external": true,
+  "quote": "0x4902c5ebc598265ed2212b559b042de8a5eeec3f",
+  "category": "flap|external|pool|v6"
+ },
+ {
+  "token": "0xB552Becd52f3467384159f3070449D80103f8888",
+  "symbol": "BTC",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|internal|bnb|v2"
+ },
+ {
+  "token": "0xc86326B3a664478C774e0279546405BDF44F8888",
+  "symbol": "UЅⅮT",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|internal|bnb|v2"
+ },
+ {
+  "token": "0x5C55397A5B1403B9c0a8851591FBAf945fB87777",
+  "symbol": ".CAM",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|internal|bnb|v6"
+ },
+ {
+  "token": "0xb6ACA6f5826C6D34f0F9011ECA088eA69A017777",
+  "symbol": ".CAM",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|internal|bnb|v6"
+ },
+ {
+  "token": "0x9cfFBf3198F715382f2D6A1f4928Bce3fb2D8888",
+  "symbol": "USTD",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|internal|bnb|v7"
+ },
+ {
+  "token": "0x563Ae1103AdAB960c25c177fdc70811cC3AB8888",
+  "symbol": "ＵＳＤТ",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "flap|internal|bnb|v7"
+ },
+ {
+  "token": "0xD3F0Ca947A00f0949bd8E5368B2CdF84271C8888",
+  "symbol": "USDT",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x55d398326f99059ff775485246999027b3197955",
+  "category": "flap|internal|pool|v2"
+ },
+ {
+  "token": "0x10806b71136785250455CAb1FBaFA06b228e8888",
+  "symbol": "ՍSDT",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x61a10e8556bed032ea176330e7f17d6a12a10000",
+  "category": "flap|internal|pool|v2"
+ },
+ {
+  "token": "0xC66223ACBB96C9BD42F3913A57A379FdE0BF8888",
+  "symbol": "ВТС",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x924fa68a0fc644485b8df8abfa0a41c2e7744444",
+  "category": "flap|internal|pool|v2"
+ },
+ {
+  "token": "0x8cE6F0fd88088f872944668ecBCDff6Ed4537777",
+  "symbol": "BTC18",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x923cbbe402ab9adb85fbe04edad056dc35447777",
+  "category": "flap|internal|pool|v6"
+ },
+ {
+  "token": "0x50e5b1B21804E2747b1627CF28090cAE0AEa7777",
+  "symbol": "谷歌传奇",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x3f53de71c126bdabae20f9cd64848d317f6c3238",
+  "category": "flap|internal|pool|v6"
+ },
+ {
+  "token": "0xEb23B82A9Aa761A198b49808211321064c5b8888",
+  "symbol": "CATTT",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+  "category": "flap|internal|pool|v7"
+ },
+ {
+  "token": "0xC24Bd573A600112D3dd2387670A56D5D802C8888",
+  "symbol": "CATTTT",
+  "platform": "flap",
+  "external": false,
+  "quote": "0x21caef8a43163eea865baee23b9c2e327696a3bf",
+  "category": "flap|internal|pool|v7"
+ },
+ {
+  "token": "0x25373BAa80CC5833984402eB4dFa4Ebbb7434444",
+  "symbol": "SAFU",
+  "platform": "four",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|external|bnb|tax0"
+ },
+ {
+  "token": "0xD7E1e010b6aEb5744FF69B8Dc61C397456174444",
+  "symbol": "GNC",
+  "platform": "four",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|external|bnb|tax0"
+ },
+ {
+  "token": "0x523c2657D8A632b9238F9ddeCa9A290EE4e4ffFf",
+  "symbol": "AICAT",
+  "platform": "four",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|external|bnb|tax9"
+ },
+ {
+  "token": "0xc4669aAe394f473f0A0A5e73A973Ca2e8cfcFfFF",
+  "symbol": "牛回",
+  "platform": "four",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|external|bnb|tax9"
+ },
+ {
+  "token": "0x1A700335ECE5c42834d6Dd1F74204eEC8E194444",
+  "symbol": "HI",
+  "platform": "four",
+  "external": true,
+  "quote": "0x4902c5ebc598265ed2212b559b042de8a5eeec3f",
+  "category": "four|external|pool|tax0"
+ },
+ {
+  "token": "0x9E9b67184eED0344B67634e0168F22BCAdA9FFFf",
+  "symbol": "Dogshit",
+  "platform": "four",
+  "external": true,
+  "quote": "0x4902c5ebc598265ed2212b559b042de8a5eeec3f",
+  "category": "four|external|pool|tax9"
+ },
+ {
+  "token": "0xd348b89E18Ccdb02A6d1CceF7c49D83f74A64444",
+  "symbol": "BRAMA",
+  "platform": "four",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|internal|bnb|tax0"
+ },
+ {
+  "token": "0x8d470035FD7c3f0973aef7C0E83ed187d5814444",
+  "symbol": "JESUS",
+  "platform": "four",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|internal|bnb|tax0"
+ },
+ {
+  "token": "0x1cEeDa06dbC74ee5E5DdBAF3614c65E175234444",
+  "symbol": "币安人",
+  "platform": "four",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|internal|bnb|tax0|antisniper"
+ },
+ {
+  "token": "0x1dC6E6E8C17F3d5faff151b562d79a949e37FffF",
+  "symbol": "WTD",
+  "platform": "four",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|internal|bnb|tax9"
+ },
+ {
+  "token": "0x4b1364995E5BB42c12124329FfC968b62d1CfFFF",
+  "symbol": "cam",
+  "platform": "four",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|internal|bnb|tax9"
+ },
+ {
+  "token": "0xc0D69EAD9C6C8052a384Fa9611Ab4afa7615fFFf",
+  "symbol": "AA",
+  "platform": "four",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "four|internal|bnb|tax9|antisniper"
+ },
+ {
+  "token": "0x1fA7d8A03d0ECfD9149459C1827700aBc59a4444",
+  "symbol": "牛来人生",
+  "platform": "four",
+  "external": false,
+  "quote": "0x55d398326f99059ff775485246999027b3197955",
+  "category": "four|internal|pool|tax0"
+ },
+ {
+  "token": "0xD9b9d7fB3D175493E6b83c162aE5850Ea0824444",
+  "symbol": "牛来人生",
+  "platform": "four",
+  "external": false,
+  "quote": "0x55d398326f99059ff775485246999027b3197955",
+  "category": "four|internal|pool|tax0"
+ },
+ {
+  "token": "0x054882a37d8ACf5A610CC2CA79A2D6cccd56FFFF",
+  "symbol": ".CAM",
+  "platform": "four",
+  "external": false,
+  "quote": "0xa394dcea3fd3847fd793afbfd163e2e3858b7c65",
+  "category": "four|internal|pool|tax9"
+ },
+ {
+  "token": "0x882078E82097224eBC12139D5B655F6a70ACfFfF",
+  "symbol": ".CAM",
+  "platform": "four",
+  "external": false,
+  "quote": "0xa394dcea3fd3847fd793afbfd163e2e3858b7c65",
+  "category": "four|internal|pool|tax9"
+ },
+ {
+  "token": "0xbf0e9C813e5A5a76Cb7178aA15429B1a8766ffFf",
+  "symbol": "HODL",
+  "platform": "four",
+  "external": false,
+  "quote": "0x924fa68a0fc644485b8df8abfa0a41c2e7744444",
+  "category": "four|internal|pool|tax9|antisniper"
+ },
+ {
+  "token": "0x2E1c6a0DE17e3109af3b11E6dBcF8752257ED4cE",
+  "symbol": "Degen",
+  "platform": "genius",
+  "external": true,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "genius|external|bnb|v2"
+ },
+ {
+  "token": "0x6bECb7542b78CD2Fb2739e5126FC5b8f8Fb16666",
+  "symbol": "DEGE",
+  "platform": "genius",
+  "external": true,
+  "quote": "0x1f12b85aac097e43aa1555b2881e98a51090e9a6",
+  "category": "genius|external|pool|v1"
+ },
+ {
+  "token": "0x8dBAE53e5B4b2786f32035C7285A89570C4B6666",
+  "symbol": "DEGENIUS",
+  "platform": "genius",
+  "external": true,
+  "quote": "0x1f12b85aac097e43aa1555b2881e98a51090e9a6",
+  "category": "genius|external|pool|v1"
+ },
+ {
+  "token": "0x1DBe34bD3c89fC848a43EfdD46eFdfA03c9c6636",
+  "symbol": "XSTOCK",
+  "platform": "genius",
+  "external": true,
+  "quote": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1",
+  "category": "genius|external|pool|v2"
+ },
+ {
+  "token": "0xF9cef8A9e81624acC58FdCd3bF1A860f2148Dd4b",
+  "symbol": "大股东",
+  "platform": "genius",
+  "external": true,
+  "quote": "0xbe9d156892e55e7154bcd3cb0fea677f9d3103e1",
+  "category": "genius|external|pool|v2"
+ },
+ {
+  "token": "0x06d3316D5A3FD97E533270Daf46551C621766CB4",
+  "symbol": "GCAT",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "genius|internal|bnb|v1"
+ },
+ {
+  "token": "0x46d2dCC54b8D489e486e100C22b04Bd2BED32b7b",
+  "symbol": "SSTOCK",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "genius|internal|bnb|v1"
+ },
+ {
+  "token": "0xa024eA8513B080e7D7A295a107F289De4D4a6666",
+  "symbol": "D",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "genius|internal|bnb|v2"
+ },
+ {
+  "token": "0x63D58169245408B0F400bEcFb3E6173e4f6A6666",
+  "symbol": "GPAY",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x0000000000000000000000000000000000000000",
+  "category": "genius|internal|bnb|v2"
+ },
+ {
+  "token": "0x2984b3D9eAd61A111413F16eF3Df7D14dc758b8a",
+  "symbol": "RETARD",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x4902c5ebc598265ed2212b559b042de8a5eeec3f",
+  "category": "genius|internal|pool|v1"
+ },
+ {
+  "token": "0x44A02fafe00C2DF8C53019869df8A65F71390b13",
+  "symbol": "DEGENIUS",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x1f12b85aac097e43aa1555b2881e98a51090e9a6",
+  "category": "genius|internal|pool|v1"
+ },
+ {
+  "token": "0x7777A256292982528885b357CFDa15CFe0dA5B1F",
+  "symbol": "GX",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x1f12b85aac097e43aa1555b2881e98a51090e9a6",
+  "category": "genius|internal|pool|v2"
+ },
+ {
+  "token": "0x21146d2ACbB4Fb7a6B4008829304dd31643AE052",
+  "symbol": "AS",
+  "platform": "genius",
+  "external": false,
+  "quote": "0x4902c5ebc598265ed2212b559b042de8a5eeec3f",
+  "category": "genius|internal|pool|v2"
+ }
+]

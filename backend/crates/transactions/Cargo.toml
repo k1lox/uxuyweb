@@ -1,0 +1,24 @@
+[package]
+name = "botai-transactions"
+version.workspace = true
+edition.workspace = true
+[features]
+test-support = ["dep:rusqlite"]
+[dependencies]
+botai-core.workspace = true
+botai-database.workspace = true
+botai-rpc.workspace = true
+alloy-consensus.workspace = true
+alloy-eips.workspace = true
+alloy-primitives.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+reqwest.workspace = true
+futures.workspace = true
+rusqlite = { version = "0.38", features = ["bundled"], optional = true }
+
+[dev-dependencies]
+rusqlite = { version = "0.38", features = ["bundled"] }
+axum.workspace = true
+tempfile = "3"

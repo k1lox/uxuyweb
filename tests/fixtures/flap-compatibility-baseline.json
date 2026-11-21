@@ -1,0 +1,830 @@
+{
+  "reviewedOn": "2026-11-16",
+  "source": "https://flap.sh/launch?chain=bnb&lang=zh",
+  "scope": "Read-only observed compatibility baseline; does not approve all factories for production. Update only after manual review.",
+  "sourceEvidenceSha256": {
+    "evidence/flap-alignment-20261116/abi-newTokenV6.json": "798498d9c9fe4f500eeadcbd49265152af647a945392d754fefd3e1984a3939d",
+    "evidence/flap-alignment-20261116/abi-newTokenV7.json": "bfb871fd2e7456800ffd1abebf809c8208d9fc8c1fc57eb8bb3459130ba19d30",
+    "evidence/flap-alignment-20261116/abi-newTokenV6WithVault.json": "94c1edd1933c669378ff5ac4c7b68de7d2a28c10f44ba4cbb0bda4f8d36d4e19",
+    "evidence/flap-alignment-20261116/abi-newTokenV7WithVault.json": "a1f58f451793e85ad0214ebee28b5363a6bfde135eda1f69e1067416081f7436",
+    "evidence/flap-alignment-20261116/featured-vaults.json": "8e244560523573e584a0bd2addad61ea09bd765653f6691c10ede3db81a52bdb",
+    "evidence/flap-alignment-20261116/chain-live.json": "33896be9a11fe09376160018e416cde283215f14f22b2bbcf6b2eb06e421c3f2"
+  },
+  "vaults": [
+    {
+      "constraints": {
+        "maxDividendBps": 0,
+        "minDividendBps": 0
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x08e41a61c5d25420e3cb314bc513ec99b2841003",
+      "launchConfig": null,
+      "name": "StrategyReserveV2",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x357c50d241df58dc730afc1e2bf40b001768f3e0",
+      "launchConfig": "artifact",
+      "name": "GmgnCallOutVault",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {
+        "developerHandle": "@longdashi",
+        "developerProfileUrl": "https://t.me/longdashi"
+      },
+      "factory": "0x47a216040dc9e0afe2e6fc5dcc44f7bbd1b60d25",
+      "launchConfig": null,
+      "name": "Burn Dividend",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "excludedQuoteTokenSymbols": [
+          "BTCB",
+          "SOL",
+          "USDT",
+          "USD1",
+          "U"
+        ],
+        "requiresErc20QuoteToken": true
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x4a42c8a67ce45cf449e0d2ff24b9a5ceacb74b69",
+      "launchConfig": null,
+      "name": "flapixelRwaV1",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "maxDividendBps": 0,
+        "minDividendBps": 0
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x5418f7e8ff90354db0ecd48c8b710219244eb3c5",
+      "launchConfig": null,
+      "name": "IndexVault",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x59f3b82ea3aa3bce6156ca61c0a6613c0a632452",
+      "launchConfig": null,
+      "name": "LP Staking Dividend",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "supportsErc20QuoteTokens": true
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {
+        "XVaultRelayerEndpoint": "https://xoracle.taxed.fun/",
+        "giftTaxV2Factories": "0xfb7ccc4fd09da5b7016a18d51e227af4abe53f44",
+        "legacyFactories": "0x025549f52b03cf36f9e1a337c02d3aa7af66ab32",
+        "v4Factory": "0x6909ad1822ece349cddab98e6f62eeed9faa2e10"
+      },
+      "factory": "0x5e8604a69158fa583b0c5c16441a9b3d429e7cbb",
+      "launchConfig": null,
+      "name": "gift",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "supportsErc20QuoteTokens": true
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x71cab5a1a8904b358c24032bb653f764efa03f14",
+      "launchConfig": null,
+      "name": "FOMOX",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x746e4978138240523cfb764e482f38ac04edb6d3",
+      "launchConfig": null,
+      "name": "omnidrop",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x7c8781b21fb004308a5a2bb7f9cb1e2e6bd1fc7e",
+      "launchConfig": null,
+      "name": "AI Smart Buyback",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x88a33780e1b3150af85fbef52f344a43ebec5a51",
+      "launchConfig": null,
+      "name": "flapixelV2",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "fixedVaultBps": 10000,
+        "maxDividendBps": 0,
+        "minDividendBps": 0
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x89a800a8fbb3538f8ddb76c95034d23c249bf9d9",
+      "launchConfig": "artifact",
+      "name": "LivingMemeVault",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "maxDividendBps": 0,
+        "minDividendBps": 0
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {
+        "legacyFactories": "0x845c25ceE4F046663756d1245739e260ca70074C,0x4c126de52d91eF2b5B29305733Dd4d81F5aB8B05,0xC7C58c0B8E884B0f8CDBe918F3aB84881b59BcaB,0x4b9D1bcD1BbB85e88c01878606C2E5E132c8571e,0x551621e9D5DEf97329F8aff40Cec0a44a0f5AF94,0x6bBE8078cB250Cb583e722864262D3b977d2BB57"
+      },
+      "factory": "0x98cadb60545cccf60af94c161714420c21e7cbc2",
+      "launchConfig": null,
+      "name": "ListaVaultSuite",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0x9f5bf8eb9c4ca7179e60d0b529f4910b9a7ee0ee",
+      "launchConfig": null,
+      "name": "Rank burn Dividend vault",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xb64655dab7156c29b63c70fb3ed7f071e2658d19",
+      "launchConfig": null,
+      "name": "buyback & burn",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xc6a0fd000988317f50215edd4098ed3368f52250",
+      "launchConfig": null,
+      "name": "ScheduledBuybackVaultV3",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {
+        "developerHandle": "@FBI_686",
+        "developerProfileUrl": "https://t.me/FBI_686",
+        "oracleEndpoint": "https://oracle.taxed.fun/v2-pool-reserves"
+      },
+      "factory": "0xcf83c4577d4c2e2a6ba48c0926046938802b74e6",
+      "launchConfig": null,
+      "name": "silent",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "fixedVaultBps": 10000,
+        "maxDividendBps": 0,
+        "maxTaxBps": 1000,
+        "minDividendBps": 0,
+        "minTaxBps": 100,
+        "supportsErc20QuoteTokens": true
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xeaeea9c17a5376497c44fe2a5f9c63fe3b23bf87",
+      "launchConfig": null,
+      "name": "MyxPerpetualVault",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xf3056daa77db106f25ba8c32ee78e5d40777fbaf",
+      "launchConfig": null,
+      "name": "Staking & LuckyDraw",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {
+        "developerHandle": "@hzgaCc",
+        "developerProfileUrl": "https://t.me/hzgaCc"
+      },
+      "factory": "0xf68ee35a4fde7a7c3e4baf01dac019b4a90fa1db",
+      "launchConfig": null,
+      "name": "Token Staking Dividend",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xfab75dc774cb9b38b91749b8833360b46a52345f",
+      "launchConfig": null,
+      "name": "split",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {
+        "maxDividendBps": 0,
+        "minDividendBps": 0,
+        "requiredQuoteTokenSymbol": "NVDAB",
+        "requiresErc20QuoteToken": true
+      },
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xfb12e8b393007bb8d925ed1c4d3eeb4854b51fa6",
+      "launchConfig": null,
+      "name": "TokenizedAssetYieldVault",
+      "showInCAStore": true
+    },
+    {
+      "constraints": {},
+      "enabled": true,
+      "exclusive": [],
+      "extra": {},
+      "factory": "0xfce2509d232fb62dc15c9bf2fade69653e480a25",
+      "launchConfig": null,
+      "name": "Buffett",
+      "showInCAStore": true
+    }
+  ],
+  "abis": {
+    "newTokenV6": {
+      "name": "newTokenV6",
+      "stateMutability": "payable",
+      "inputs": [
+        {
+          "type": "tuple",
+          "components": [
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "name": "symbol"
+            },
+            {
+              "type": "string",
+              "name": "meta"
+            },
+            {
+              "type": "uint8",
+              "name": "dexThresh"
+            },
+            {
+              "type": "bytes32",
+              "name": "salt"
+            },
+            {
+              "type": "uint8",
+              "name": "migratorType"
+            },
+            {
+              "type": "address",
+              "name": "quoteToken"
+            },
+            {
+              "type": "uint256",
+              "name": "quoteAmt"
+            },
+            {
+              "type": "address",
+              "name": "beneficiary"
+            },
+            {
+              "type": "bytes",
+              "name": "permitData"
+            },
+            {
+              "type": "bytes32",
+              "name": "extensionID"
+            },
+            {
+              "type": "bytes",
+              "name": "extensionData"
+            },
+            {
+              "type": "uint8",
+              "name": "dexId"
+            },
+            {
+              "type": "uint8",
+              "name": "lpFeeProfile"
+            },
+            {
+              "type": "uint16",
+              "name": "buyTaxRate"
+            },
+            {
+              "type": "uint16",
+              "name": "sellTaxRate"
+            },
+            {
+              "type": "uint64",
+              "name": "taxDuration"
+            },
+            {
+              "type": "uint64",
+              "name": "antiFarmerDuration"
+            },
+            {
+              "type": "uint16",
+              "name": "mktBps"
+            },
+            {
+              "type": "uint16",
+              "name": "deflationBps"
+            },
+            {
+              "type": "uint16",
+              "name": "dividendBps"
+            },
+            {
+              "type": "uint16",
+              "name": "lpBps"
+            },
+            {
+              "type": "uint256",
+              "name": "minimumShareBalance"
+            },
+            {
+              "type": "address",
+              "name": "dividendToken"
+            },
+            {
+              "type": "address",
+              "name": "commissionReceiver"
+            },
+            {
+              "type": "uint8",
+              "name": "tokenVersion"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "type": "address"
+        }
+      ]
+    },
+    "newTokenV7": {
+      "name": "newTokenV7",
+      "stateMutability": "payable",
+      "inputs": [
+        {
+          "type": "tuple",
+          "components": [
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "name": "symbol"
+            },
+            {
+              "type": "string",
+              "name": "meta"
+            },
+            {
+              "type": "uint8",
+              "name": "dexThresh"
+            },
+            {
+              "type": "bytes32",
+              "name": "salt"
+            },
+            {
+              "type": "uint8",
+              "name": "migratorType"
+            },
+            {
+              "type": "address",
+              "name": "quoteToken"
+            },
+            {
+              "type": "uint256",
+              "name": "quoteAmt"
+            },
+            {
+              "type": "bytes",
+              "name": "permitData"
+            },
+            {
+              "type": "bytes32",
+              "name": "extensionID"
+            },
+            {
+              "type": "bytes",
+              "name": "extensionData"
+            },
+            {
+              "type": "uint8",
+              "name": "dexId"
+            },
+            {
+              "type": "uint16",
+              "name": "buyTaxRate"
+            },
+            {
+              "type": "uint16",
+              "name": "sellTaxRate"
+            },
+            {
+              "type": "uint64",
+              "name": "taxDuration"
+            },
+            {
+              "type": "uint64",
+              "name": "antiFarmerDuration"
+            },
+            {
+              "type": "address",
+              "name": "commissionReceiver"
+            },
+            {
+              "type": "uint8",
+              "name": "tokenVersion"
+            },
+            {
+              "type": "tuple[4]",
+              "name": "feeConfigs",
+              "components": [
+                {
+                  "type": "uint8",
+                  "name": "feeType"
+                },
+                {
+                  "type": "uint16",
+                  "name": "bps"
+                },
+                {
+                  "type": "address",
+                  "name": "marketingAddress"
+                },
+                {
+                  "type": "address",
+                  "name": "dividendToken"
+                },
+                {
+                  "type": "uint256",
+                  "name": "minimumShareBalance"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "type": "address"
+        }
+      ]
+    },
+    "newTokenV6WithVault": {
+      "name": "newTokenV6WithVault",
+      "stateMutability": "payable",
+      "inputs": [
+        {
+          "type": "tuple",
+          "components": [
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "name": "symbol"
+            },
+            {
+              "type": "string",
+              "name": "meta"
+            },
+            {
+              "type": "uint8",
+              "name": "dexThresh"
+            },
+            {
+              "type": "bytes32",
+              "name": "salt"
+            },
+            {
+              "type": "uint8",
+              "name": "migratorType"
+            },
+            {
+              "type": "address",
+              "name": "quoteToken"
+            },
+            {
+              "type": "uint256",
+              "name": "quoteAmt"
+            },
+            {
+              "type": "bytes",
+              "name": "permitData"
+            },
+            {
+              "type": "bytes32",
+              "name": "extensionID"
+            },
+            {
+              "type": "bytes",
+              "name": "extensionData"
+            },
+            {
+              "type": "uint8",
+              "name": "dexId"
+            },
+            {
+              "type": "uint8",
+              "name": "lpFeeProfile"
+            },
+            {
+              "type": "uint16",
+              "name": "buyTaxRate"
+            },
+            {
+              "type": "uint16",
+              "name": "sellTaxRate"
+            },
+            {
+              "type": "uint64",
+              "name": "taxDuration"
+            },
+            {
+              "type": "uint64",
+              "name": "antiFarmerDuration"
+            },
+            {
+              "type": "uint16",
+              "name": "mktBps"
+            },
+            {
+              "type": "uint16",
+              "name": "deflationBps"
+            },
+            {
+              "type": "uint16",
+              "name": "dividendBps"
+            },
+            {
+              "type": "uint16",
+              "name": "lpBps"
+            },
+            {
+              "type": "uint256",
+              "name": "minimumShareBalance"
+            },
+            {
+              "type": "address",
+              "name": "dividendToken"
+            },
+            {
+              "type": "address",
+              "name": "commissionReceiver"
+            },
+            {
+              "type": "uint8",
+              "name": "tokenVersion"
+            },
+            {
+              "type": "address",
+              "name": "vaultFactory"
+            },
+            {
+              "type": "bytes",
+              "name": "vaultData"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "type": "address"
+        }
+      ]
+    },
+    "newTokenV7WithVault": {
+      "name": "newTokenV7WithVault",
+      "stateMutability": "payable",
+      "inputs": [
+        {
+          "type": "tuple",
+          "components": [
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "name": "symbol"
+            },
+            {
+              "type": "string",
+              "name": "meta"
+            },
+            {
+              "type": "uint8",
+              "name": "dexThresh"
+            },
+            {
+              "type": "bytes32",
+              "name": "salt"
+            },
+            {
+              "type": "uint8",
+              "name": "migratorType"
+            },
+            {
+              "type": "address",
+              "name": "quoteToken"
+            },
+            {
+              "type": "uint256",
+              "name": "quoteAmt"
+            },
+            {
+              "type": "bytes",
+              "name": "permitData"
+            },
+            {
+              "type": "bytes32",
+              "name": "extensionID"
+            },
+            {
+              "type": "bytes",
+              "name": "extensionData"
+            },
+            {
+              "type": "uint8",
+              "name": "tokenVersion"
+            },
+            {
+              "type": "uint8",
+              "name": "dexId"
+            },
+            {
+              "type": "uint64",
+              "name": "antiFarmerDuration"
+            },
+            {
+              "type": "uint16",
+              "name": "buyTaxRate"
+            },
+            {
+              "type": "uint16",
+              "name": "sellTaxRate"
+            },
+            {
+              "type": "uint64",
+              "name": "taxDuration"
+            },
+            {
+              "type": "address",
+              "name": "commissionReceiver"
+            },
+            {
+              "type": "tuple[4]",
+              "name": "feeConfigs",
+              "components": [
+                {
+                  "type": "uint8",
+                  "name": "feeType"
+                },
+                {
+                  "type": "uint16",
+                  "name": "bps"
+                },
+                {
+                  "type": "address",
+                  "name": "marketingAddress"
+                },
+                {
+                  "type": "address",
+                  "name": "dividendToken"
+                },
+                {
+                  "type": "uint256",
+                  "name": "minimumShareBalance"
+                }
+              ]
+            },
+            {
+              "type": "address",
+              "name": "vaultFactory"
+            },
+            {
+              "type": "bytes",
+              "name": "vaultData"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "type": "address"
+        }
+      ]
+    }
+  },
+  "versions": {
+    "Portal": {
+      "address": "0xe2ce6ab80874fa9fa2aae65d277dd6b8e65c9de0",
+      "version": "v5.27.2"
+    },
+    "VaultPortal": {
+      "address": "0x90497450f2a706f1951b5bdda52b4e5d16f34c06",
+      "version": "1.17.0"
+    }
+  },
+  "adapterSources": [
+    {
+      "chunk": "753",
+      "role": "curated catalog and dedicated Vault encoders",
+      "sha256": "adf1a484e01249cc12c2c1939fa16dbc4533e8e20796ffc5cb5468efbb6aa6f6",
+      "reviewedOn": "2026-11-16"
+    },
+    {
+      "chunk": "4739",
+      "role": "launch form and constraints",
+      "sha256": "6eb1aac11c7c3b775a4aa6bec5d920d2f41914925fd416b75da28eb8af68e4af",
+      "reviewedOn": "2026-11-16"
+    },
+    {
+      "chunk": "4183",
+      "role": "creation parameters",
+      "sha256": "1ed3336c39943981fb2dac227d99dd21f00eb4c3c81e13faae8f7f4c5a83291d",
+      "reviewedOn": "2026-11-16"
+    },
+    {
+      "chunk": "1749",
+      "role": "standard schema and policies",
+      "sha256": "7c0ce57d3301f7234fd13af39bae867797ae2903ae318a9b005e1c88e836107b",
+      "reviewedOn": "2026-11-16"
+    },
+    {
+      "chunk": "3235",
+      "role": "artifact form host",
+      "sha256": "6554a03bec1fab8e7b4877e4fa02a39b4201fb4419b1ce67a5d90cf23762c4d0",
+      "reviewedOn": "2026-11-16"
+    },
+    {
+      "chunk": "1375",
+      "role": "artifact parameter validation",
+      "sha256": "562ac9954bb360e5e591e6cda4c729160fcd1760edb2557410984fea799503bc",
+      "reviewedOn": "2026-11-16"
+    }
+  ]
+}

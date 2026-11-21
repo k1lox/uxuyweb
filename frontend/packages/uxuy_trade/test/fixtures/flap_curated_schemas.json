@@ -1,0 +1,659 @@
+{
+  "0x98cadb60545cccf60af94c161714420c21e7cbc2": {
+    "name": "ListaVaultSuite",
+    "schema": {
+      "readable": true,
+      "description": "1",
+      "isArray": false,
+      "fields": []
+    }
+  },
+  "0x5e8604a69158fa583b0c5c16441a9b3d429e7cbb": {
+    "name": "gift",
+    "schema": {
+      "readable": true,
+      "description": "Creates a Flap Gift Tax Vault (multi-quote: native or any ERC20). The only launch-time input is the gift owner's Twitter/X handle. / 创建 Flap 礼物税收金库（支持任意底池币种）。唯一的创建参数是礼物接收者的 X 账号。",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "xHandle",
+          "type": "string",
+          "description": "Gift owner's Twitter/X handle (lowercase) used for off-chain proof verification.",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x4a42c8a67ce45cf449e0d2ff24b9a5ceacb74b69": {
+    "name": "flapixelRwaV1",
+    "schema": {
+      "readable": true,
+      "description": "FLAPixel NFT vault / FLAPixel NFT 金库",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "NFTName",
+          "type": "string",
+          "description": "NFT name / NFT名称",
+          "decimals": 0
+        },
+        {
+          "name": "NFTSymbol",
+          "type": "string",
+          "description": "NFT symbol / NFT符号",
+          "decimals": 0
+        },
+        {
+          "name": "maxNFTSupply",
+          "type": "uint256",
+          "description": "Max NFT supply / NFT最大数量",
+          "decimals": 0
+        },
+        {
+          "name": "initialFloorNFTs",
+          "type": "uint256",
+          "description": "Initial floor support NFTs / 首次托底NFT数量",
+          "decimals": 0
+        },
+        {
+          "name": "tokenCostPerNFT",
+          "type": "uint256",
+          "description": "Token cost per NFT / 每张NFT兑换Token数量",
+          "decimals": 18
+        },
+        {
+          "name": "dividendSharePercent",
+          "type": "uint16",
+          "description": "Dividend percent / 分红比例百分比",
+          "decimals": 0
+        },
+        {
+          "name": "floorSharePercent",
+          "type": "uint16",
+          "description": "Floor percent / 地板价比例百分比",
+          "decimals": 0
+        },
+        {
+          "name": "artSource",
+          "type": "string",
+          "description": "Art source / 图像来源",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x9f5bf8eb9c4ca7179e60d0b529f4910b9a7ee0ee": {
+    "name": "Rank burn Dividend vault",
+    "schema": {
+      "readable": true,
+      "description": "黑洞燃烧排行榜分红金库模板: 燃烧赚取BNB和代币分红，BNB分红部分：“80%奖金用于燃烧代币价值分红(点击领取后退出，需再次燃烧才能继续分红)，20%奖金用于燃烧代币价值本位排行榜前10分红;”代币分红部分：“详情参见税收模版手册。”",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "minBurnAmount",
+          "type": "uint256",
+          "description": "Min burn threshold (100-100000) / 最低燃烧量阈值(100-100000)",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0x7c8781b21fb004308a5a2bb7f9cb1e2e6bd1fc7e": {
+    "name": "AI Smart Buyback",
+    "schema": {
+      "readable": true,
+      "description": "Create an AI-managed treasury that conducts buybacks or token burns based on market trading conditions. \n创建由AI自主管理的金库，AI根据Token市场数据决策，进行回购或者销毁代币",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "decisionCooldown / 决策冷却时间",
+          "type": "uint16",
+          "description": "Make a new decision only when the interval from the last decision >= x seconds. must between [60,7200] / 最小决策间隔，单位秒，必须在 [60,7200] 之间",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x5418f7e8ff90354db0ecd48c8b710219244eb3c5": {
+    "name": "IndexVault",
+    "schema": {
+      "readable": true,
+      "description": "Creates an IndexVault. The creator selects 1..N supported assets from the factory's supported-asset registry to form this vault's dividend basket, supplies a short symbol, and chooses the distribution mode. Both the asset subset and the distribution mode are baked in at launch and cannot be changed afterwards.",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "selectedAssets",
+          "type": "address[]",
+          "description": "Underlying assets to include in this vault's basket (1..MAX_BASKET_ASSETS).",
+          "decimals": 0
+        },
+        {
+          "name": "symbol",
+          "type": "string",
+          "description": "Short basket symbol (used for the basket token name/symbol; max MAX_SYMBOL_LENGTH chars).",
+          "decimals": 0
+        },
+        {
+          "name": "instantDividend",
+          "type": "bool",
+          "description": "If true, basket shares are deposited into the dividend contract immediately on every keeper sell. If false (default), shares accumulate in the vault and are distributed randomly by the trigger service.",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x08e41a61c5d25420e3cb314bc513ec99b2841003": {
+    "name": "StrategyReserveV2",
+    "schema": {
+      "readable": true,
+      "description": "Select up to 10 assets; use 0x1 for empty slots.",
+      "isArray": true,
+      "fields": [
+        {
+          "name": "selectedAsset",
+          "type": "address",
+          "description": "Asset address or 0x1 empty",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0xfb12e8b393007bb8d925ed1c4d3eeb4854b51fa6": {
+    "name": "TokenizedAssetYieldVault",
+    "schema": {
+      "readable": true,
+      "description": "分红持币最小量、营销钱包和营销比例",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "minimumShareBalance",
+          "type": "uint256",
+          "description": "分红持币最小量（不得低于 10,000）",
+          "decimals": 18
+        },
+        {
+          "name": "marketingWallet",
+          "type": "address",
+          "description": "营销钱包；不启用时填零地址",
+          "decimals": 0
+        },
+        {
+          "name": "marketingSharePercent",
+          "type": "uint16",
+          "description": "营销比例（百分比，0=不启用，1-50=启用）",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0xeaeea9c17a5376497c44fe2a5f9c63fe3b23bf87": {
+    "name": "MyxPerpetualVault",
+    "schema": {
+      "readable": true,
+      "description": "myx market quote token (e.g. USDT/USDC) plus this vault's thresholds. The reward is the resulting myx LP. / myx 市場報價幣（如 USDT/USDC）與本金庫的閾值設定。獎勵為產出的 myx LP。",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "marketQuoteToken",
+          "type": "address",
+          "description": "myx market quote token (e.g. USDT/USDC). / myx 市場報價幣（如 USDT/USDC）。",
+          "decimals": 0
+        },
+        {
+          "name": "minProcessAmount",
+          "type": "uint256",
+          "description": "Minimum tax (in the launch quote token's smallest unit) before a buyback runs. / 執行回購前的最低稅收（以發行報價幣最小單位計）。",
+          "decimals": 0
+        },
+        {
+          "name": "gasThreshold",
+          "type": "uint256",
+          "description": "ERC20 quote only: refill the BNB gas pool below this balance. 0 for native quote. / 僅 ERC20 報價幣：Gas 池低於此值時補充。原生報價幣填 0。",
+          "decimals": 18
+        },
+        {
+          "name": "gasRefillAmount",
+          "type": "uint256",
+          "description": "ERC20 quote only: gas pool target after a refill, must exceed gasThreshold. 0 for native quote. / 僅 ERC20 報價幣：補充後的 Gas 池目標，須大於閾值。原生報價幣填 0。",
+          "decimals": 18
+        },
+        {
+          "name": "maxProcessAmount",
+          "type": "uint256",
+          "description": "Per-call buyback cap (launch quote smallest unit), must be >= minProcessAmount. Larger balances are bought back in successive batches. / 單次回購上限（發行報價幣最小單位），須不小於最低處理金額。超出部分分批回購。",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x89a800a8fbb3538f8ddb76c95034d23c249bf9d9": {
+    "name": "LivingMemeVault",
+    "schema": {
+      "readable": true,
+      "description": "Story relay vault (VaultBaseV3 / factory v2.3). Factory owns the vault beacon; upgrades are Guardian-only. Until openLaunch, only launchOpener may create a vault; afterwards anyone may launch through VaultPortal. Quote may be native BNB or any ERC20. Generate fee is always BNB. Character CID plus the opening sentence are required. Quote tax first pays the Flap template fee to the immutable factory devAddress (6% if tax rate <= 1%, else 6/rate). Remaining quote tax stays unallocated. A successful writer takes 1%-5% of that pot, snapshotted at submit. Step length is 2/3/4/5 minutes by act. This vault does not issue rescue tokens.",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "characterCid",
+          "type": "string",
+          "description": "IPFS CID for the story character reference (video type 4).",
+          "decimals": 0
+        },
+        {
+          "name": "openingPrompt",
+          "type": "string",
+          "description": "Opening sentence filmed on the first clip if the writer leaves prompt empty.",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x357c50d241df58dc730afc1e2bf40b001768f3e0": {
+    "name": "GmgnCallOutVault",
+    "schema": {
+      "readable": true,
+      "description": "Auto commission, USDT rewards and token buyback; five signed-holding tiers. / 自动分佣、USDT奖励和代币回购；按签名持仓设置五档奖励。",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "rewardAt50Usd",
+          "type": "uint256",
+          "description": "At least $50: 0 or 1-5 USDT; default 1 / 至少50美元：0或1-5 USDT，默认1",
+          "decimals": 18
+        },
+        {
+          "name": "rewardAt200Usd",
+          "type": "uint256",
+          "description": "At least $200: 0 or 2-10 USDT; default 2 / 至少200美元：0或2-10 USDT，默认2",
+          "decimals": 18
+        },
+        {
+          "name": "rewardAt500Usd",
+          "type": "uint256",
+          "description": "At least $500: 0 or 5-20 USDT; default 5 / 至少500美元：0或5-20 USDT，默认5",
+          "decimals": 18
+        },
+        {
+          "name": "rewardAt1000Usd",
+          "type": "uint256",
+          "description": "At least $1000: 0 or 10-50 USDT; default 10 / 至少1000美元：0或10-50 USDT，默认10",
+          "decimals": 18
+        },
+        {
+          "name": "rewardAt10000Usd",
+          "type": "uint256",
+          "description": "At least $10000: 0 or 100-200 USDT; default 100 / 至少10000美元：0或100-200 USDT，默认100",
+          "decimals": 18
+        },
+        {
+          "name": "intervalHours",
+          "type": "uint8",
+          "description": "Cooldown: 0=10 min; 1-24=hours / 冷却：0=10分钟；1-24=小时",
+          "decimals": 0
+        },
+        {
+          "name": "minimumHolding",
+          "type": "uint256",
+          "description": "Minimum token holding: at least 1000 / 最低持币：至少1000枚",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0xfab75dc774cb9b38b91749b8833360b46a52345f": {
+    "name": "split",
+    "schema": {
+      "readable": false,
+      "readFailure": {
+        "readFailed": true,
+        "revertData": "0x"
+      },
+      "interpretation": "接口读取失败；不等于禁用，不能默认空 vaultData。"
+    }
+  },
+  "0x746e4978138240523cfb764e482f38ac04edb6d3": {
+    "name": "omnidrop",
+    "schema": {
+      "readable": true,
+      "description": "",
+      "isArray": false,
+      "fields": []
+    }
+  },
+  "0xb64655dab7156c29b63c70fb3ed7f071e2658d19": {
+    "name": "buyback & burn",
+    "schema": {
+      "readable": false,
+      "readFailure": {
+        "readFailed": true,
+        "revertData": "0x"
+      },
+      "interpretation": "接口读取失败；不等于禁用，不能默认空 vaultData。"
+    }
+  },
+  "0xc6a0fd000988317f50215edd4098ed3368f52250": {
+    "name": "ScheduledBuybackVaultV3",
+    "schema": {
+      "readable": true,
+      "description": "创建定时回购并销毁的金库。buybackMode=0 为纯 token 回购销毁，buybackMode=1 为 LP 回购销毁；触发费由合约按 Trigger Service 实时报价处理，创建时不需要填写。",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "buybackMode",
+          "type": "uint256",
+          "description": "回购模式：0=纯 token 回购销毁，1=LP 回购销毁；LP 未 ready 时临时回落为 token 回购销毁。",
+          "decimals": 0
+        },
+        {
+          "name": "triggerMode",
+          "type": "uint256",
+          "description": "触发方式：0=按时间，1=按金额，2=时间和金额同时满足。",
+          "decimals": 0
+        },
+        {
+          "name": "startDelayMinutes",
+          "type": "uint256",
+          "description": "按分钟输入。模式 1 必须填 0；模式 0/2 输入 1 到 525600，合约自动转换为秒。",
+          "decimals": 0
+        },
+        {
+          "name": "buybackIntervalMinutes",
+          "type": "uint256",
+          "description": "两次回购之间的分钟数；最小 1 分钟，最大 525600 分钟，合约会转换为秒。",
+          "decimals": 0
+        },
+        {
+          "name": "triggerAmount",
+          "type": "uint256",
+          "description": "模式 0 必须填 0；模式 1/2 输入 1 到 1000 BNB，且必须是整数 BNB。",
+          "decimals": 18
+        },
+        {
+          "name": "buybackAmount",
+          "type": "uint256",
+          "description": "每次实际回购的 BNB。所有触发模式均为 0.001 到 10 BNB，最多三位小数。",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0x47a216040dc9e0afe2e6fc5dcc44f7bbd1b60d25": {
+    "name": "Burn Dividend",
+    "schema": {
+      "readable": true,
+      "description": "Burn Dividend Vault: Users burn tokens to earn BNB dividends. No additional configuration needed. / 燃烧分红金库：用户燃烧代币以赚取BNB分红。无需额外配置。",
+      "isArray": false,
+      "fields": []
+    }
+  },
+  "0xcf83c4577d4c2e2a6ba48c0926046938802b74e6": {
+    "name": "silent",
+    "schema": {
+      "readable": true,
+      "description": "Taxes flow into the vault fund pool. Holders can sell tokens via the vault with 0 tax. Tokens sold through the vault are burned directly, enabling deflation while preventing sell pressure from impacting price. / 税收进入金库资金池，持币人可以通过金库资金池0税卖出代币，通过金库卖出的代币直接销毁，实现代币通缩且卖出不影响价格。",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "maxUserBnbOutPerSell",
+          "type": "uint256",
+          "description": "Maximum sellable BNB amount per token sale via the vault (BNB) / 单次通过金库卖出代币最大可售出BNB金额（单位BNB）",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0x59f3b82ea3aa3bce6156ca61c0a6613c0a632452": {
+    "name": "LP Staking Dividend",
+    "schema": {
+      "readable": true,
+      "description": "LP Staking Hybrid Vault: Stake LP tokens for BNB dividends. No additional configuration needed. / LP质押混合金库：质押LP代币以赚取BNB红利。无需额外配置。",
+      "isArray": false,
+      "fields": []
+    }
+  },
+  "0xf68ee35a4fde7a7c3e4baf01dac019b4a90fa1db": {
+    "name": "Token Staking Dividend",
+    "schema": {
+      "readable": true,
+      "description": "Token staking vault config. / 代币质押金库配置(质押代币赚取BNB分红)",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "minStakeForReward",
+          "type": "uint256",
+          "description": "Min stake for rewards (0=no min) / 最低有效代币质押数量(0=无限制)",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0xf3056daa77db106f25ba8c32ee78e5d40777fbaf": {
+    "name": "Staking & LuckyDraw",
+    "schema": {
+      "readable": true,
+      "description": "AI Lucky Drop V2: Stake tokens(min 10000), pool>=xBNB triggers draw, winners split 80% pool & keep tokens, 24h unstake delay. Max 4096. / AI抽奖V2：质押(最低10000)参与，奖池达xBNB开奖，中奖者均分80%奖池且不销毁代币，取消质押24H延迟取回，最多4096人。",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "winnersCount",
+          "type": "uint256",
+          "description": "Winners per draw(1-10) / 每期中奖人数(1-10)",
+          "decimals": 0
+        },
+        {
+          "name": "minPrizePool",
+          "type": "uint256",
+          "description": "Min pool to draw(>=0.01BNB) / 开奖最低奖池(>=0.01)",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0xfce2509d232fb62dc15c9bf2fade69653e480a25": {
+    "name": "Buffett",
+    "schema": {
+      "readable": true,
+      "description": "AI Buffett buy-the-dip market-making strategy. Buy more when it drops more, buy less when it drops less, don't buy when it doesn't drop. All bought-back tokens are burned. / AI巴菲特逢低吸筹做市策略，多跌多买，少跌少买，不跌不买，回购的币全部销毁。别人恐惧我贪婪，别人贪婪我恐惧",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "decisionCooldown",
+          "type": "uint256",
+          "description": "Make a new decision only when the interval from the last decision >= x seconds. must between [60,7200] / 最小决策间隔，单位秒，必须在 [60,7200] 之间",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x88a33780e1b3150af85fbef52f344a43ebec5a51": {
+    "name": "flapixelV2",
+    "schema": {
+      "readable": true,
+      "description": "FLAPixel NFT vault / FLAPixel NFT 金库",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "NFTName",
+          "type": "string",
+          "description": "NFT name / NFT名称",
+          "decimals": 0
+        },
+        {
+          "name": "NFTSymbol",
+          "type": "string",
+          "description": "NFT symbol / NFT符号",
+          "decimals": 0
+        },
+        {
+          "name": "maxNFTSupply",
+          "type": "uint256",
+          "description": "Max NFT supply / NFT最大数量",
+          "decimals": 0
+        },
+        {
+          "name": "initialFloorNFTs",
+          "type": "uint256",
+          "description": "Initial floor support NFTs / 首次托底NFT数量",
+          "decimals": 0
+        },
+        {
+          "name": "tokenCostPerNFT",
+          "type": "uint256",
+          "description": "Token cost per NFT / 每张NFT兑换Token数量",
+          "decimals": 18
+        },
+        {
+          "name": "dividendSharePercent",
+          "type": "uint16",
+          "description": "Dividend percent, 50 = 50% / 分红比例百分比，50等于50%",
+          "decimals": 0
+        },
+        {
+          "name": "floorSharePercent",
+          "type": "uint16",
+          "description": "Floor percent, 50 = 50% / 地板价比例百分比，50等于50%",
+          "decimals": 0
+        },
+        {
+          "name": "artSource",
+          "type": "string",
+          "description": "0 or zero address = default; contract = SVG schema; / or .json = external tokenURI / 0或零地址默认；合约地址为SVG；/或.json为外部URI",
+          "decimals": 0
+        }
+      ]
+    }
+  },
+  "0x71cab5a1a8904b358c24032bb653f764efa03f14": {
+    "name": "FOMOX",
+    "schema": {
+      "readable": true,
+      "description": "轻量喊单：固定2小时冷却及锁仓，无终身次数上限 / Shout Lite: fixed 2h cooldown + escrow, no lifetime cap",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "claimUsdE18",
+          "type": "uint256",
+          "description": "每次USD：0默认2，夹紧至0.5-10 / USD reward: 0 defaults to 2, clamped to 0.5-10",
+          "decimals": 18
+        },
+        {
+          "name": "minTaxBalance",
+          "type": "uint256",
+          "description": "托管税币：0默认10000，夹紧至10000-1000000 / Escrow tax: 0 defaults to 10000, clamped to 10000-1000000",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0x845c25cee4f046663756d1245739e260ca70074c": {
+    "name": "Lista mode",
+    "schema": {
+      "description": "USDT Basket",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "minimumShareBalance",
+          "type": "uint256",
+          "description": "Minimum token balance required for dividend eligibility; must be at least 10000 tokens.",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0x4c126de52d91ef2b5b29305733dd4d81f5ab8b05": {
+    "name": "Lista mode",
+    "schema": {
+      "description": "Creates a ListaDAO liquid staking LimitHolder vault. minimumShareBalance is encoded in token base units; UI input uses 18 decimals.",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "minimumShareBalance",
+          "type": "uint256",
+          "description": "Minimum project token balance required for Dividend eligibility",
+          "decimals": 18
+        }
+      ]
+    }
+  },
+  "0xc7c58c0b8e884b0f8cdbe918f3ab84881b59bcab": {
+    "name": "Lista mode",
+    "schema": {
+      "description": "Creates a Token Lock Staking vault. Min stake fields use 18 decimals; lock days and weights are raw integers. Pending BNB processing threshold is fixed in the vault at 0.01 BNB after Flap dynamic fee. Tier 1 is flexible when lockDays = 0 and locked when lockDays > 0. For tiers 2-4, lockDays = 0 disables that tier and the vault ignores its weight and min stake.",
+      "isArray": false,
+      "fields": [
+        {
+          "name": "lockDays1",
+          "type": "uint16",
+          "description": "Tier lock duration in days",
+          "decimals": 0
+        },
+        {
+          "name": "lockWeightBps1",
+          "type": "uint16",
+          "description": "Tier reward weight, 10000 = 1x",
+          "decimals": 0
+        },
+        {
+          "name": "minStakeAmount1",
+          "type": "uint256",
+          "description": "Minimum tax token stake",
+          "decimals": 18
+        },
+        {
+          "name": "lockDays2",
+          "type": "uint16",
+          "description": "Tier lock duration in days",
+          "decimals": 0
+        },
+        {
+          "name": "lockWeightBps2",
+          "type": "uint16",
+          "description": "Tier reward weight, 10000 = 1x",
+          "decimals": 0
+        },
+        {
+          "name": "minStakeAmount2",
+          "type": "uint256",
+          "description": "Minimum tax token stake",
+          "decimals": 18
+        },
+        {
+          "name": "lockDays3",
+          "type": "uint16",
+          "description": "Tier lock duration in days",
+          "decimals": 0
+        },
+        {
+          "name": "lockWeightBps3",
+          "type": "uint16",
+          "description": "Tier reward weight, 10000 = 1x",
+          "decimals": 0
+        },
+        {
+          "name": "minStakeAmount3",
+          "type": "uint256",
+          "description": "Minimum tax token stake",
+          "decimals": 18
+        },
+        {
+          "name": "lockDays4",
+          "type": "uint16",
+          "description": "Tier lock duration in days",
+          "decimals": 0
+        },
+        {
+          "name": "lockWeightBps4",
+          "type": "uint16",
+          "description": "Tier reward weight, 10000 = 1x",
+          "decimals": 0
+        },
+        {
+          "name": "minStakeAmount4",
+          "type": "uint256",
+          "description": "Minimum tax token stake",
+          "decimals": 18
+        }
+      ]
+    }
+  }
+}

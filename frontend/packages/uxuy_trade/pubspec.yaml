@@ -1,0 +1,25 @@
+name: uxuy_trade
+description: UXUY BSC batch trading module (own wallets, local signing, own backend).
+version: 0.1.0
+publish_to: none
+environment:
+  sdk: ^3.13.5
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.1
+  crypto: ^3.0.7
+  http_parser: ^4.0.2
+  uxuy_business_sdk: ^0.3.3
+dependency_overrides:
+  # Same resolution as the delivered root project: the SDK comes from the kit's own source.
+  uxuy_business_sdk:
+    path: ../uxuy_business_sdk
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+flutter:
+  assets:
+    - assets/images/uxuy_logo_light.png

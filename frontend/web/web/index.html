@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="UXUY 链上交易工作台">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>UXUY</title>
+  <style>
+    html,body{height:100%;margin:0;background:#fff;font-family:Arial,sans-serif}
+    [hidden]{display:none!important}
+    #loading,.notice{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;gap:16px;color:#8a9295;font-size:14px}
+    .notice{padding:24px;text-align:center;color:#303638}
+    #loading img{width:100px;height:auto}
+    #loading:after{content:'';width:18px;height:18px;border:2px solid #e8eced;border-top-color:#ff4d0d;border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div id="loading" role="status" aria-label="正在载入 UXUY" hidden><img src="favicon.png" alt="UXUY"></div>
+  <main id="notice" class="notice" role="status" hidden></main>
+  <noscript><p class="notice">请用 Google Chrome 打开此网站，并启用 JavaScript。</p></noscript>
+  <template id="app-scripts">
+    <script src="wallet_backup.js"></script>
+    <script src="flutter_bootstrap.js"></script>
+  </template>
+  <script>
+    (async () => {
+      const loading = document.getElementById('loading');
+      const notice = document.getElementById('notice');
+      function showNotice(text) {
+        loading.hidden = true;
+        notice.textContent = text;
+        notice.hidden = false;
+      }
+      const ua = navigator.userAgent;
+      const brands = navigator.userAgentData?.brands;
+      // Chromium's shared UA string alone does not identify Google Chrome.
+      // On iOS Chrome identifies itself with CriOS instead of Client Hints.
+      const isChrome = brands?.length
+        ? brands.some(entry => entry.brand === 'Google Chrome')
+        : /\bCriOS\/\d/.test(ua);
+      const isOtherBrowser = navigator.brave ||
+        /(?:\b(?:Edg(?:e|A|iOS)?|OPR|OPiOS|SamsungBrowser|Vivaldi|YaBrowser|Electron|DuckDuckGo|GSA|FxiOS)\/|;\s*wv\b)/i.test(ua);
+      if (!isChrome || isOtherBrowser) {
+        showNotice('请用 Google Chrome 打开此网站。');
+        return;
+      }
+      loading.hidden = false;
+      window.addEventListener('flutter-first-frame', () => loading.remove(), {once: true});
+      try {
+        for (const entry of document.getElementById('app-scripts').content.querySelectorAll('script')) {
+          const script = document.createElement('script');
+          script.src = entry.getAttribute('src');
+          await new Promise((resolve, reject) => {
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+      } catch {
+        showNotice('网站载入失败，请刷新后重试。');
+      }
+    })();
+  </script>
+</body>
+</html>

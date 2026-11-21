@@ -1,0 +1,13 @@
+name: uxuy_business_sdk
+description: Public contracts only; contains no UXUY credentials or implementations.
+version: 0.3.3
+publish_to: none
+environment:
+  sdk: ^3.13.5
+dependencies:
+  flutter:
+    sdk: flutter
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+

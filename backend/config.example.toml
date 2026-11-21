@@ -1,0 +1,41 @@
+# Copy this template to config.local.toml or a file outside the checkout.
+listen = "127.0.0.1:3291"
+max_price_impact_percent = 7.0
+default_slippage_bps = 100
+deadline_seconds = 180
+cors_origins = ["http://127.0.0.1:3190", "http://localhost:3190"]
+
+store_path = "data/transactions.sqlite"
+
+# Use your own HTTPS BSC upstream in production. This local default requires a running node.
+rpc_url = "http://127.0.0.1:8545"
+# Local fork testing may also set bundle_local_relay to its loopback relay.
+# Enable trading only with the verified BSC execution contract, ERC20 allowance target,
+# and native BNB token identifier supplied by UXUY. All three values are explicit.
+# Without this entire section the service starts with swap execution disabled.
+# [uxuy]
+# router = "<verified UXUY BSC execution address>"
+# approval_spender = "<verified UXUY BSC allowance address>"
+# native_token = "<UXUY BNB token identifier>"
+# app_id_file = "/run/secrets/uxuy_app_id"
+# signing_key_file = "/run/secrets/uxuy_rs256.pem"
+
+# Optional. Without [mysql], the service uses the SQLite store above.
+# [mysql]
+# host = "127.0.0.1"
+# port = 3306
+# database = "<database>"
+# user = "<database user>"
+# password = "<database password>"
+
+# Private relay authorization can also come from UXUY_BUNDLE_AUTHORIZATION.
+# [bundle]
+# authorization = ""
+
+# Optional BSC monitor. Use a Telegram bot assigned to this service.
+# [monitor]
+# token = "<Telegram bot token>"
+# chat_id = "<source Telegram chat ID>"
+# sender_id = "<source sender ID>"
+# access_key = "<monitor access key>"
+# push_contact = "mailto:admin@example.com"  # Public operator contact for Web Push.

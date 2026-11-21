@@ -1,0 +1,19 @@
+[package]
+name = "botai-integrations"
+version.workspace = true
+edition.workspace = true
+[dependencies]
+botai-core.workspace = true
+botai-rpc.workspace = true
+botai-platforms.workspace = true
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+moka.workspace = true
+futures.workspace = true
+tokio.workspace = true
+alloy-primitives = { workspace = true, features = ["k256"] }
+alloy-sol-types.workspace = true
+regex = "1"
+sha2 = "0.10"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }

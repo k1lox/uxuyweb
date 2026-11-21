@@ -1,0 +1,8 @@
+[package]
+name = "botai-database"
+version.workspace = true
+edition.workspace = true
+[dependencies]
+botai-core.workspace = true
+mysql.workspace = true
+tokio.workspace = true
