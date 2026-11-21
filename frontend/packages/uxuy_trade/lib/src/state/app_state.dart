@@ -22,7 +22,7 @@ part 'group_quote.dart';
 String formatPrivateKeyLines(Iterable<TradeWallet> wallets) =>
     wallets.map((wallet) => wallet.exportPrivateKey()).join('\n');
 
-enum WorkspacePage { four, flap, genius, batch, tools, holding, monitor }
+enum WorkspacePage { four, flap, genius, batch, tools, holding }
 
 /// Raised before any signing operation acquires the workspace or its wallets.
 class WorkspaceConflict implements Exception {

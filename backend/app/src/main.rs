@@ -4,7 +4,6 @@ mod error;
 mod issued;
 mod launch_bundle;
 mod launch_approval;
-mod monitor;
 mod platform_api;
 mod route;
 mod rpc;
@@ -42,7 +41,6 @@ pub struct App {
     pub platforms: botai_platforms::Platforms,
     pub integrations: botai_integrations::Integrations,
     pub transactions: botai_transactions::Transactions,
-    monitor: Option<botai_monitor::Monitor>,
 }
 
 fn now() -> u64 {
@@ -106,7 +104,6 @@ async fn main() {
             .collect(),
     );
     let platforms = botai_platforms::Platforms::new(chain_rpc.clone());
-    let mut monitor_db = None;
     let store = match &config.mysql {
         Some(db) => {
             let db = botai_database::Database::connect(
@@ -118,7 +115,6 @@ async fn main() {
             )
             .expect("mysql");
             db.schema().expect("mysql schema");
-            monitor_db = Some(db.clone());
             botai_transactions::Store::mysql(db)
         }
         None => {
@@ -144,16 +140,8 @@ async fn main() {
             .expect("local relay must be loopback http"),
         None => transactions,
     };
-    let monitor = config.monitor.as_ref().map(|settings| {
-        assert!([&settings.token, &settings.chat_id, &settings.sender_id, &settings.access_key].iter().all(|v| !v.trim().is_empty()), "monitor settings incomplete");
-        match monitor_db {
-            Some(db) => botai_monitor::Monitor::new_mysql(settings.clone(), http.clone(), db),
-            None => botai_monitor::Monitor::new(settings.clone(), http.clone(), format!("{}.monitor", config.store_path)),
-        }.expect("monitor store")
-    });
     let _tracker = transactions.start_tracking();
     let app = App {
-        monitor,
         rpc_provider,
         node_status: Default::default(),
         chain_rpc: chain_rpc.clone(),
@@ -198,7 +186,7 @@ async fn main() {
         .allow_origin(origins)
         .allow_methods([axum::http::Method::GET, axum::http::Method::POST])
         .allow_headers([axum::http::header::CONTENT_TYPE]);
-    axum::serve(listener, routes(app).layer(cors).into_make_service_with_connect_info::<std::net::SocketAddr>())
+    axum::serve(listener, routes(app).layer(cors))
         .await
         .expect("serve");
 }
@@ -209,10 +197,6 @@ fn routes(app: App) -> Router {
             "/api/v1/health",
             get(|| async { Json(json!({"ok": true})) }),
         )
-        .route("/api/telegram-monitor", post(monitor::stream).layer(DefaultBodyLimit::max(1024)))
-        .route("/api/monitor-push", post(monitor::push).layer(DefaultBodyLimit::max(4096)))
-        .route("/api/monitor-worker", get(monitor::worker))
-        .route("/api/monitor-manifest", get(monitor::manifest))
         .route("/api/v1/config", get(public_config))
         .route("/api/v1/rpc-latency", get(rpc_latency))
         .route("/api/v1/routes", post(plan_route))

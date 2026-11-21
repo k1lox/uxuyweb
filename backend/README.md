@@ -33,7 +33,3 @@ BNB 买单的交易 value、合约输入和 Traded 事件必须等于请求金�
 ## BSC 工作台
 
 卖出检查会单独调用 `POST /api/v1/approvals/check`。用户在页面发起检查后，客户端按缺少的额度准备授权，分组提交到私有节点，等回执确认，再从链上读取每个钱包的额度。卖出交易在用户确认交易金额后提交。普通组循环按该钱包启动时的持仓计算每轮额度，以当前余额封顶。
-
-## 可选的 Telegram 监控接口
-
-启用时，在服务端私有配置中填写 `[monitor]` 的五项设置，指定专用机器人、来源群、发送者、访问密钥和推送联系方式。`push_contact` 使用可公开的 HTTPS 联系页或 `mailto:` 邮箱，推送服务会收到此地址。`POST /api/telegram-monitor` 提供消息流，`POST /api/monitor-push` 管理浏览器推送。省略 `[monitor]` 时，这两个接口返回消息源未配置。监控状态随交易存储使用 MySQL，或写入 `store_path` 旁的 `.monitor` 文件。

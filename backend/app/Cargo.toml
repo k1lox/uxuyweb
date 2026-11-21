@@ -6,7 +6,6 @@ license.workspace = true
 publish = false
 
 [dependencies]
-botai-monitor = { workspace = true, features = ["sqlite"] }
 axum.workspace = true
 tokio.workspace = true
 serde.workspace = true

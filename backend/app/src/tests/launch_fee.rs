@@ -138,7 +138,6 @@ async fn private_creation_is_submitted_alone_and_retired_payments_never_reach_re
 
     let store = botai_transactions::Store::open(":memory:").unwrap();
     let app = App {
-        monitor: None,
         planner: Planner {
             platforms: None,
             uxuy: Uxuy::disabled(),

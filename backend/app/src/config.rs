@@ -14,8 +14,6 @@ pub struct Config {
     rpc_url: String,
     #[serde(default)]
     pub uxuy: Option<UxuyConfig>,
-    #[serde(default)]
-    pub monitor: Option<botai_monitor::Config>,
     #[serde(default = "default_max_impact")]
     pub max_price_impact_percent: f64,
     #[serde(default = "default_slippage")]
@@ -134,6 +132,7 @@ impl Config {
             "launch_fee_contract",
             "platform_routers",
             "okx",
+            "monitor",
             "skip_router_check",
         ] {
             fields.remove(key);

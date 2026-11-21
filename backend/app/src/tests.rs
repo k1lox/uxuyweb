@@ -200,7 +200,10 @@ skip_router_check=true
 api_key="unused"
 [platform_routers]
 four="unused"
+[monitor]
+token="unused"
 "#;
+    assert!(crate::config::Config::parse("[unknown_section]").is_err());
     let settings = crate::config::Config::parse(text).unwrap();
     assert_eq!(settings.listen, "127.0.0.1:3295");
     assert!(settings.uxuy.is_none());

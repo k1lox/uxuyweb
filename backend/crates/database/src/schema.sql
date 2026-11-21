@@ -9,13 +9,6 @@ CREATE TABLE IF NOT EXISTS botai_nonce_claims (
  nonce VARCHAR(24) COLLATE ascii_bin NOT NULL, hash VARCHAR(80) COLLATE ascii_bin NOT NULL,
  PRIMARY KEY(chain,sender,nonce)
 ) ENGINE=InnoDB;
-CREATE TABLE IF NOT EXISTS botai_settings (
- name VARCHAR(128) COLLATE ascii_bin PRIMARY KEY, value LONGTEXT NOT NULL
-) ENGINE=InnoDB;
-CREATE TABLE IF NOT EXISTS botai_monitor_devices (
- token_hash CHAR(64) COLLATE ascii_bin PRIMARY KEY, endpoint_hash CHAR(64) COLLATE ascii_bin NOT NULL UNIQUE,
- data LONGTEXT NOT NULL
-) ENGINE=InnoDB;
 CREATE TABLE IF NOT EXISTS botai_users (
  id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
  credential_hash CHAR(64) COLLATE ascii_bin NOT NULL UNIQUE,

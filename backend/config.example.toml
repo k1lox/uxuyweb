@@ -31,11 +31,3 @@ rpc_url = "http://127.0.0.1:8545"
 # Private relay authorization can also come from UXUY_BUNDLE_AUTHORIZATION.
 # [bundle]
 # authorization = ""
-
-# Optional BSC monitor. Use a Telegram bot assigned to this service.
-# [monitor]
-# token = "<Telegram bot token>"
-# chat_id = "<source Telegram chat ID>"
-# sender_id = "<source sender ID>"
-# access_key = "<monitor access key>"
-# push_contact = "mailto:admin@example.com"  # Public operator contact for Web Push.

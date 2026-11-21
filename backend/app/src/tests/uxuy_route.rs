@@ -666,7 +666,6 @@ async fn route_to_signed_bundle_relay_requires_original_signer_value_and_data() 
     .unwrap();
     let rpc = planner.rpc.clone().unwrap();
     let app = crate::App {
-        monitor: None,
         planner,
         rpc,
         router: ROUTER,

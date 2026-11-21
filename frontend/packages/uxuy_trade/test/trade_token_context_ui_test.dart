@@ -278,7 +278,7 @@ void main() {
     final active = state.withWalletUse(owner: first, label: first.name, addresses: [a], action: () => hold.future);
     expect(state.workspaceBlockReason(WorkspacePage.batch), isNull);
     expect(state.workspaceBlockReason(WorkspacePage.tools), contains(first.name));
-    expect(state.workspaceBlockReason(WorkspacePage.monitor), contains(first.name));
+    expect(state.workspaceBlockReason(WorkspacePage.holding), contains(first.name));
     await state.withWalletUse(owner: second, label: second.name, addresses: [b], action: () async {});
     for (final owner in [state.flap, state.genius, state.four]) {
       await expectLater(state.withWalletUse(owner: owner, label: owner.label, addresses: [b],
@@ -291,7 +291,7 @@ void main() {
     expect(state.workspaceBlockReason(WorkspacePage.batch), isNotNull);
     expect(state.workspaceBlockReason(WorkspacePage.flap), isNull);
     state.flap.state = LaunchState.launched;
-    for (final page in [WorkspacePage.batch, WorkspacePage.tools, WorkspacePage.monitor, WorkspacePage.holding]) {
+    for (final page in [WorkspacePage.batch, WorkspacePage.tools, WorkspacePage.holding]) {
       expect(state.workspaceBlockReason(page), isNull);
     }
     expect(state.workspaceBlockReason(WorkspacePage.four), isNotNull);
