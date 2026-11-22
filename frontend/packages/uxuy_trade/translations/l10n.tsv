@@ -256,6 +256,7 @@ internal_wallets	Internal buyers	内盘购买钱包
 external_wallets	External buyers	外盘购买钱包
 per_wallet_amount	Per wallet	每个地址
 tip	Builder tip	贿赂费
+tip_per_bundle	Builder tip per bundle	每个捆绑的构建者小费
 prepare_launch	Prepare launch	准备发币
 launched	Launched	已发币
 liquidate	Liquidate all	一键清仓

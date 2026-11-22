@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'support/launch_purchase_receipt.dart';
+import 'support/fake_backend.dart' show FakeBackend, token;
 
 import 'package:http/testing.dart';
 import 'package:uxuy_trade/src/api/backend_client.dart';
@@ -124,6 +125,40 @@ void main() {
       launcher.checkBalances([leg(0), leg(1)], BigInt.one),
       throwsStateError,
     );
+  });
+  test('liquidation logs an empty round only after checking every participant', () async {
+    final node = FakeBackend();
+    for (final wallet in keys) {
+      node.wallets[wallet.address.toLowerCase()] = {
+        'native': '1000000000000000000', 'nonce': 0, 'tokenBalance': '0', 'routerAllowance': '1000',
+      };
+    }
+    final clear = FlapLauncher(node.api(), ExecutionLog())
+      ..session = LaunchSession(platform: 'flap', token: token, symbol: 'TEST', dev: keys.first, wallets: [keys.first])
+      ..state = LaunchState.launched;
+    addTearDown(clear.dispose);
+    clear.recordTradeParticipant(token, keys.last);
+    final lastWallet = node.wallets[keys.last.address.toLowerCase()]!;
+    const message = '本轮钱包已无可卖代币，未提交清仓';
+    final emptyLogs = clear.log.entries.where((e) => e.text.contains(message));
+
+    lastWallet.remove('tokenBalance');
+    await expectLater(clear.prepareLiquidation(), throwsA(isA<BackendException>()));
+    expect(emptyLogs, isEmpty);
+
+    lastWallet['tokenBalance'] = '1000';
+    final preview = await clear.prepareLiquidation();
+    expect(preview.amounts, {keys.last.address.toLowerCase(): BigInt.from(1000)});
+    expect(emptyLogs, isEmpty);
+
+    lastWallet['tokenBalance'] = '0';
+    await expectLater(clear.prepareLiquidation(), throwsA(isA<StateError>().having(
+      (e) => e.message, 'reason', '没有可执行的钱包：余额不足',
+    )));
+    expect(emptyLogs, hasLength(1));
+    expect(clear.log.entries.last.text, endsWith(message));
+    expect(node.signatures, isEmpty);
+    expect(node.bundles, isEmpty);
   });
   test('lost approval response can be resolved by original hashes without starting a launch or resending', () async {
     api.sendError = TimeoutException('lost response');

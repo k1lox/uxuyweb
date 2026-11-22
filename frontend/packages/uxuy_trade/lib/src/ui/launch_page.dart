@@ -10,7 +10,7 @@ import 'package:flutter/services.dart' show FilteringTextInputFormatter;
 
 import '../api/backend_client.dart';
 import '../evm/evm.dart';
-import '../exec/executor.dart' show PreparedRound, SendMode;
+import '../exec/executor.dart' show bscBundleTipRecipient, PreparedRound, SendMode;
 import '../exec/genius_launch.dart';
 import '../exec/genius_configurable.dart';
 import '../exec/genius_quote_labels.dart';
@@ -1241,6 +1241,8 @@ class _LaunchFormState extends State<_LaunchForm> {
             for (final tx in txs)
               if (tx.kind == 'create')
                 Text('平台发行费  ${bnb(tx.creationFee ?? tx.value)}')
+              else if (tx.kind == 'tip')
+                Text(_builderTipDetails(c, tx.value, tx.to!))
               else if (tx.purchasedToken == null)
                 Text('${tx.label}  ${bnb(tx.value)}'),
             if (session.reserved > BigInt.zero)
@@ -2425,6 +2427,10 @@ class _LaunchFormState extends State<_LaunchForm> {
   }
 }
 
+String _builderTipDetails(BuildContext context, BigInt amount, String recipient) =>
+    '${t(context, 'tip_per_bundle')} · ${formatUnits(amount, 18, maxFraction: 18)} BNB\n'
+    '${t(context, 'recipient_address')}  $recipient';
+
 // A platform's draft is shared by its form and sidebar. The launch confirmation
 // locks the same value in both layouts until the review has finished.
 class LaunchTipDraft extends TextEditingController {
@@ -2496,6 +2502,7 @@ class LaunchRoundControls extends StatelessWidget {
     final l = launcher;
     final s = l.session;
     if (l.state != LaunchState.launched || s == null) return const SizedBox.shrink();
+    final knownPoolSymbol = s.poolSymbol?.trim() ?? geniusQuoteLabels[s.poolToken.toLowerCase()] ?? '';
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -2508,11 +2515,21 @@ class LaunchRoundControls extends StatelessWidget {
         if (s.poolToken.toLowerCase() != zeroAddress) ...[
           const SizedBox(height: 8),
           Text(t(context, 'liquidate_asset'), style: muted),
-          UiSelect<bool>(
-            value: l.receivePoolToken,
-            semanticLabel: t(context, 'liquidate_asset'),
-            options: [(false, 'BNB'), (true, '${t(context, 'pool_token')} · ${s.poolToken}')],
-            onChanged: l.busy || l.pendingLiquidation ? null : l.selectLiquidationOutput,
+          FutureBuilder<String?>(
+            key: ObjectKey(s),
+            initialData: knownPoolSymbol,
+            future: knownPoolSymbol.isEmpty ? s.lookupPoolSymbol(l.api) : null,
+            builder: (context, snapshot) {
+              final symbol = snapshot.data ?? '';
+              final label = symbol.isEmpty ? s.poolToken
+                  : symbol.toUpperCase() == 'BNB' ? '$symbol · ${s.poolToken}' : symbol;
+              return UiSelect<bool>(
+                value: l.receivePoolToken,
+                semanticLabel: t(context, 'liquidate_asset'),
+                options: [(false, 'BNB'), (true, label)],
+                onChanged: l.busy || l.pendingLiquidation ? null : l.selectLiquidationOutput,
+              );
+            },
           ),
         ],
         const SizedBox(height: 8),
@@ -2578,7 +2595,7 @@ class LaunchRoundControls extends StatelessWidget {
             SelectableText(session.token, style: mono),
             const SizedBox(height: 8),
             if (session.tip > BigInt.zero)
-              Text('${t(c, 'tip')} · ${formatUnits(session.tip, 18, maxFraction: 18)} BNB / ${t(c, 'bundle')}'),
+              Text(_builderTipDetails(c, session.tip, bscBundleTipRecipient)),
             Text(
               '${t(c, 'wallets')} ${prep.amounts.length} · ${formatUnits(prep.inputTotal, 18, maxFraction: 18)} $symbol',
             ),

@@ -53,9 +53,11 @@ void main() {
       final state = AppState(node.api(), MemoryKeyStore());
       addTearDown(state.dispose);
       node.tokenMetadata[token] = {'token': token, 'name': 'CAKE', 'symbol': 'CAKE', 'decimals': 18};
+      const uusd = '0x61a10e8556bed032ea176330e7f17d6a12a10000';
       state.flap
         ..session = LaunchSession(platform: 'flap', token: token, symbol: 'FLAP',
-          dev: wallets.first, wallets: wallets, tip: BigInt.parse('4000000000000000'))
+          dev: wallets.first, wallets: wallets, poolToken: uusd, poolSymbol: 'UUSD',
+          tip: BigInt.parse('4000000000000000'))
         ..state = LaunchState.launched;
       state.token = const TokenMeta(pool, 'OTHER', 'OTHER', 18);
       await tester.pumpWidget(MaterialApp(
@@ -78,13 +80,21 @@ void main() {
       expect(action, findsOneWidget);
       final sidebar = find.byKey(const ValueKey('desktop-sidebar'));
       expect(find.descendant(of: sidebar, matching: action), width >= 1000 ? findsOneWidget : findsNothing);
+      final selector = find.byWidgetPredicate((w) => w is UiSelect<bool> && w.semanticLabel == '清仓到账币种');
+      expect(tester.widget<UiSelect<bool>>(selector).options, [(false, 'BNB'), (true, 'UUSD')]);
+      expect(node.calls, isNot(contains('tokens/$uusd')));
       await tester.ensureVisible(action);
       await tester.tap(action);
       await tester.pumpAndSettle();
       final dialog = find.byType(UiDialog);
       expect(find.descendant(of: dialog, matching: find.text('Flap · BSC · FLAP')), findsOneWidget);
       expect(find.descendant(of: dialog, matching: find.text(token)), findsOneWidget);
-      expect(find.descendant(of: dialog, matching: find.text('贿赂费 · 0.004 BNB / 捆绑')), findsOneWidget);
+      final tip = find.descendant(
+        of: dialog,
+        matching: find.text('每个捆绑的构建者小费 · 0.004 BNB\n收款地址  $bscBundleTipRecipient'),
+      );
+      expect(tip, findsOneWidget);
+      expect(tester.getRect(dialog).contains(tester.getCenter(tip)), isTrue);
       await tester.tap(find.descendant(of: dialog, matching: find.text('取消')));
       await tester.pumpAndSettle();
       expect(node.bundles, isEmpty);
@@ -101,7 +111,7 @@ void main() {
           addTearDown(tester.view.reset);
           final state = AppState(node.api(), MemoryKeyStore());
           addTearDown(state.dispose);
-          final choosePool = width == 390 && language == 'en';
+          final choosePool = (width == 390 && language == 'en') || (width == 1280 && language == 'zh');
           if (choosePool) {
             node.tokenMetadata[pool] = {
               'token': pool, 'symbol': 'USDX', 'name': 'USDX', 'decimals': 6,
@@ -132,12 +142,12 @@ void main() {
           final chinese = language == 'zh';
           if (choosePool) {
             final asset = find.byWidgetPredicate((w) =>
-                w is UiSelect<bool> && w.semanticLabel == 'Liquidation proceeds');
+                w is UiSelect<bool> && w.semanticLabel == (chinese ? '清仓到账币种' : 'Liquidation proceeds'));
             await tester.ensureVisible(asset);
             await tester.pumpAndSettle();
             await tester.tap(asset);
             await tester.pumpAndSettle();
-            await tester.tap(find.text('Pool token · $pool').last);
+            await tester.tap(find.text('USDX').last);
             await tester.pumpAndSettle();
           }
           final unit = choosePool ? 'USDX' : 'BNB';
@@ -148,11 +158,13 @@ void main() {
           await tester.pumpAndSettle();
           final dialog = find.byType(UiDialog);
           expect(dialog, findsOneWidget);
+          expect(find.descendant(of: dialog, matching: find.textContaining(bscBundleTipRecipient)), findsNothing);
+          expect(find.descendant(of: dialog, matching: find.textContaining(chinese ? '构建者小费' : 'Builder tip')), findsNothing);
           final minimum = find.descendant(
             of: dialog,
             matching: find.textContaining(
               chinese
-                  ? '每个钱包的最低到账 BNB 数量由其卖出报价确定'
+                  ? '每个钱包的最低到账 $unit 数量由其卖出报价确定'
                   : 'the minimum $unit amount in that wallet’s sale quote',
             ),
           );
@@ -195,6 +207,20 @@ void main() {
       );
     }
   }
+
+  test('unknown pool symbol retries on the next lookup and verifies the address', () async {
+    final session = LaunchSession(platform: 'genius', token: token, symbol: 'NEW',
+        dev: wallets.first, wallets: wallets, poolToken: pool);
+    final api = node.api();
+    addTearDown(api.http_.close);
+    expect(await session.lookupPoolSymbol(api), isNull);
+    node.tokenMetadata[pool] = {'token': token, 'symbol': 'WRONG', 'name': '', 'decimals': 6};
+    expect(await session.lookupPoolSymbol(api), isNull);
+    node.tokenMetadata[pool] = {'token': pool, 'symbol': 'CUSTOM', 'name': '', 'decimals': 6};
+    expect(await session.lookupPoolSymbol(api), 'CUSTOM');
+    expect(await session.lookupPoolSymbol(api), 'CUSTOM');
+    expect(node.calls.where((path) => path == 'tokens/$pool'), hasLength(3));
+  });
 
   test(
     'liquidation above the configured threshold requires a second confirmation',

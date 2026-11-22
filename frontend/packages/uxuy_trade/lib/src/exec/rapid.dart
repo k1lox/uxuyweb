@@ -282,8 +282,10 @@ extension RapidExecution on BatchTrader {
         }
         if (sells[i] > 0) {
           probeSellInput = plan.sellFrom(balance);
-          if (probeSellInput <= BigInt.zero)
-            throw StateError('$owner 卖量低于最小交易单位');
+          if (probeSellInput <= BigInt.zero) {
+            final reason = balance == BigInt.zero ? '没有可卖的代币' : '卖量低于最小交易单位';
+            throw StateError('$owner $reason');
+          }
           final quote = await simulate(owner, false, probeSellInput);
           probeSellGrants = quote.approvals;
         }

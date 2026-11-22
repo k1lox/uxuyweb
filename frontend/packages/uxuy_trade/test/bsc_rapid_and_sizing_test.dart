@@ -197,6 +197,21 @@ void main() {
     impactLimit: 20,
   );
 
+  for (final (balance, reason) in [
+    ('0', '没有可卖的代币'),
+    ('1', '卖量低于最小交易单位'),
+  ]) {
+    test('rapid sell preflight reports the cause for balance $balance', () async {
+      row['tokenBalance'] = balance;
+      final sale = plan(mode: RapidDirection.sell, count: '1', percent: '50');
+      await expectLater(
+        trader.prepareRapid(sale, () => true),
+        throwsA(isA<StateError>().having((e) => e.message, 'message', '${w.address} $reason')),
+      );
+      expect(backend.bundles, isEmpty);
+    });
+  }
+
   test('rapid checks latest versus pending nonce at preparation and start',() async {
     final p=plan(mode:RapidDirection.buy,count:'1');
     backend.minedNonces[w.address.toLowerCase()]=2;

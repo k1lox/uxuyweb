@@ -308,26 +308,32 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const Divider(height: 24, color: UiStyle.border),
-                ListenableBuilder(
-                  listenable: s,
-                  builder: (_, _) => Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      _tokenContext(context, s),
-                      _launchActions(s),
-                    ],
-                  ),
+        SliverLayoutBuilder(
+          builder: (context, space) => SliverToBoxAdapter(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: (space.viewportMainAxisExtent - space.precedingScrollExtent).clamp(0.0, double.infinity),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(18, 0, 18, 12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const Divider(height: 24, color: UiStyle.border),
+                    ListenableBuilder(
+                      listenable: s,
+                      builder: (_, _) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          _tokenContext(context, s),
+                          _launchActions(s),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

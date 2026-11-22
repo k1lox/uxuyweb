@@ -181,6 +181,7 @@ class LaunchSession {
     required this.dev,
     required this.wallets,
     this.poolToken = zeroAddress,
+    this.poolSymbol,
     BigInt? tip,
     BigInt? reserved,
   }) : tip = tip ?? BigInt.zero,
@@ -191,6 +192,20 @@ class LaunchSession {
   final TradeWallet dev;
   final List<TradeWallet> wallets;
   final String poolToken;
+  final String? poolSymbol;
+  Future<String?>? _poolSymbolLookup;
+
+  Future<String?> lookupPoolSymbol(BackendClient api) => _poolSymbolLookup ??= api.token(poolToken).then((meta) {
+    if (meta.address.toLowerCase() == poolToken.toLowerCase() && meta.symbol.trim().isNotEmpty) {
+      return meta.symbol.trim();
+    }
+    _poolSymbolLookup = null;
+    return null;
+  }, onError: (Object error) {
+    _poolSymbolLookup = null;
+    return null;
+  });
+
   final _laterWallets = <String, TradeWallet>{};
 
   List<TradeWallet> get liquidationWallets => {
@@ -1082,6 +1097,13 @@ abstract class Launcher extends ChangeNotifier {
       final owners = plan.wallets.map((w) => w.address).toList();
       final balances = await progress.read(() => api.refreshWalletStates(owners, token: s.token));
       if (balances.any((w) => w.tokenBalance == null)) throw StateError('有参与钱包未返回代币余额');
+      final observedBalances = {for (final row in balances) row.wallet.toLowerCase(): row.tokenBalance!};
+      if (!reconciling && !progress.cancelled && identical(s, session) &&
+          owners.isNotEmpty && balances.length == owners.length &&
+          owners.every((owner) => observedBalances[owner.toLowerCase()] == BigInt.zero)) {
+        log.add('$label 本轮钱包已无可卖代币，未提交清仓');
+        throw StateError('没有可执行的钱包：余额不足');
+      }
       if (reconciling && s.platform != 'genius' && !progress.cancelled && identical(s, session) &&
           balances.length == owners.length && balances.every((w) => market.sellUnits(w.tokenBalance!) == BigInt.zero)) {
         _releaseSession(keepForLaterTrades: true);
@@ -1106,7 +1128,7 @@ abstract class Launcher extends ChangeNotifier {
         session: s,
         market: market,
         prepared: prepared,
-        observedBalances: Map.unmodifiable({for (final row in balances) row.wallet.toLowerCase():row.tokenBalance!}),
+        observedBalances: Map.unmodifiable(observedBalances),
         settlement: settlement,
         readAt: readAt,
       );
@@ -1956,6 +1978,7 @@ class FourLauncher extends Launcher {
       LaunchSession(
         platform: 'four',
         poolToken: quote,
+        poolSymbol: raised.lookupSymbol,
         token: token,
         symbol: form.shortName.trim(),
         dev: dev.wallet,
@@ -2942,6 +2965,7 @@ class FlapLauncher extends Launcher {
       LaunchSession(
         platform: 'flap',
         poolToken: q.native ? zeroAddress : q.address,
+        poolSymbol: q.symbol,
         token: token,
         symbol: form.symbol.trim(),
         dev: dev.wallet,
